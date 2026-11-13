@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96">
+  <defs>
+    <radialGradient id="doughG" cx="48" cy="48" r="36" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#fed7aa"/>
+      <stop offset="70%" stop-color="#fba444"/>
+      <stop offset="100%" stop-color="#c25e00"/>
+    </radialGradient>
+    <radialGradient id="frostG" cx="42" cy="40" r="32" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#f472b6"/>
+      <stop offset="70%" stop-color="#ec4899"/>
+      <stop offset="100%" stop-color="#be185d"/>
+    </radialGradient>
+  </defs>
+  <!-- Dough base -->
+  <circle cx="48" cy="48" r="38" fill="url(#doughG)" stroke="#8c4400" stroke-width="3"/>
+  <!-- Pink Frosting with wavy drippings -->
+  <path d="M48 12 C62 12, 82 22, 84 40 C85 54, 76 60, 78 72 C80 82, 64 84, 52 83 C38 82, 34 76, 26 78 C16 80, 12 68, 12 52 C12 34, 28 12, 48 12 Z" fill="url(#frostG)"/>
+  <!-- Donut Hole -->
+  <circle cx="48" cy="48" r="14" fill="#0f172a" stroke="#8c4400" stroke-width="2.5"/>
+  <!-- Colorful sprinkles -->
+  <rect x="30" y="24" width="7" height="3.5" rx="1.7" transform="rotate(25 30 24)" fill="#38bdf8"/>
+  <rect x="62" y="26" width="7" height="3.5" rx="1.7" transform="rotate(-35 62 26)" fill="#facc15"/>
+  <rect x="70" y="48" width="7" height="3.5" rx="1.7" transform="rotate(45 70 48)" fill="#4ade80"/>
+  <rect x="58" y="72" width="7" height="3.5" rx="1.7" transform="rotate(-20 58 72)" fill="#38bdf8"/>
+  <rect x="34" y="70" width="7" height="3.5" rx="1.7" transform="rotate(60 34 70)" fill="#facc15"/>
+  <rect x="22" y="46" width="7" height="3.5" rx="1.7" transform="rotate(-15 22 46)" fill="#ffffff"/>
+  <!-- Frosting highlight -->
+  <path d="M26 24 C34 18, 54 16, 68 22" fill="none" stroke="rgba(255,255,255,0.7)" stroke-width="3.5" stroke-linecap="round"/>
+</svg>

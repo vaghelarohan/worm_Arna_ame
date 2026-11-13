@@ -1,0 +1,12 @@
+[gd_scene format=3]
+
+[ext_resource type="PackedScene" path="res://Scenes/Gameplay/PlayScreen.tscn" id="1_play"]
+[ext_resource type="Script" path="res://Scripts/Systems/TestVerificationSuite.gd" id="2_suite"]
+
+[node name="TestVerificationRunner" type="Node"]
+
+[node name="PlayScreen" parent="." instance=ExtResource("1_play")]
+
+[node name="TestVerificationSuite" type="Node" parent="."]
+script = ExtResource("2_suite")
+

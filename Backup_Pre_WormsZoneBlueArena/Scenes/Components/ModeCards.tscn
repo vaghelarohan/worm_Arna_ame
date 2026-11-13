@@ -1,0 +1,259 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://Scripts/UI/ModeCards.gd" id="1_mcsc"]
+[ext_resource type="StyleBox" path="res://Resources/btn_gold.tres" id="2_btngd"]
+[ext_resource type="StyleBox" path="res://Resources/btn_cyan_navy.tres" id="3_btncn"]
+[ext_resource type="Script" path="res://Scripts/UI/GameButton.gd" id="4_gmbtn"]
+[ext_resource type="FontFile" path="res://Assets/Fonts/LilitaOne-Regular.ttf" id="5_font_lilita"]
+[ext_resource type="Texture2D" path="res://Assets/Icons/play.svg" id="6_play"]
+[ext_resource type="Texture2D" path="res://Assets/Icons/zap.svg" id="7_zap"]
+[ext_resource type="Texture2D" path="res://Assets/Icons/infinity.svg" id="8_inf"]
+[ext_resource type="Texture2D" path="res://Assets/Icons/trophy.svg" id="9_trophy"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_new_badge"]
+bg_color = Color(0.937255, 0.266667, 0.266667, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_online_bar"]
+bg_color = Color(0.0431373, 0.0470588, 0.117647, 0.8)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[node name="ModeCards" type="VBoxContainer"]
+custom_minimum_size = Vector2(400, 420)
+offset_right = 400.0
+offset_bottom = 420.0
+theme_override_constants/separation = 20
+script = ExtResource("1_mcsc")
+
+[node name="QuickPlayCard" type="Button" parent="."]
+custom_minimum_size = Vector2(400, 130)
+layout_mode = 2
+theme_override_styles/normal = ExtResource("2_btngd")
+theme_override_styles/hover = ExtResource("2_btngd")
+theme_override_styles/pressed = ExtResource("2_btngd")
+script = ExtResource("4_gmbtn")
+
+[node name="HBox" type="HBoxContainer" parent="QuickPlayCard"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 24.0
+offset_right = -24.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 16
+
+[node name="PlayIcon" type="TextureRect" parent="QuickPlayCard/HBox"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+size_flags_vertical = 4
+mouse_filter = 2
+texture = ExtResource("6_play")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="TextCol" type="VBoxContainer" parent="QuickPlayCard/HBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="Title" type="Label" parent="QuickPlayCard/HBox/TextCol"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0.0431373, 0.0470588, 0.117647, 1)
+theme_override_constants/outline_size = 6
+theme_override_fonts/font = ExtResource("5_font_lilita")
+theme_override_font_sizes/font_size = 40
+text = "QUICK PLAY"
+
+[node name="SubRow" type="HBoxContainer" parent="QuickPlayCard/HBox/TextCol"]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="Subtext" type="Label" parent="QuickPlayCard/HBox/TextCol/SubRow"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.0431373, 0.0470588, 0.117647, 1)
+theme_override_fonts/font = ExtResource("5_font_lilita")
+theme_override_font_sizes/font_size = 20
+text = "2-5-10 MIN MATCH"
+
+[node name="ZapIcon" type="TextureRect" parent="QuickPlayCard/HBox/TextCol/SubRow"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+size_flags_vertical = 4
+mouse_filter = 2
+texture = ExtResource("7_zap")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="InfinityCard" type="Button" parent="."]
+custom_minimum_size = Vector2(400, 110)
+layout_mode = 2
+theme_override_styles/normal = ExtResource("3_btncn")
+theme_override_styles/hover = ExtResource("3_btncn")
+theme_override_styles/pressed = ExtResource("3_btncn")
+script = ExtResource("4_gmbtn")
+
+[node name="HBox" type="HBoxContainer" parent="InfinityCard"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 24.0
+offset_right = -24.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 16
+
+[node name="InfIcon" type="TextureRect" parent="InfinityCard/HBox"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+size_flags_vertical = 4
+mouse_filter = 2
+texture = ExtResource("8_inf")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="TextCol" type="VBoxContainer" parent="InfinityCard/HBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="Title" type="Label" parent="InfinityCard/HBox/TextCol"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0.0431373, 0.0470588, 0.117647, 1)
+theme_override_constants/outline_size = 6
+theme_override_fonts/font = ExtResource("5_font_lilita")
+theme_override_font_sizes/font_size = 34
+text = "INFINITY MODE"
+
+[node name="Subtext" type="Label" parent="InfinityCard/HBox/TextCol"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.517647, 0.8, 0.0862745, 1)
+theme_override_fonts/font = ExtResource("5_font_lilita")
+theme_override_font_sizes/font_size = 18
+text = "ENDLESS SURVIVAL ARENA"
+
+[node name="TournamentCard" type="Button" parent="."]
+custom_minimum_size = Vector2(400, 140)
+layout_mode = 2
+theme_override_styles/normal = ExtResource("2_btngd")
+theme_override_styles/hover = ExtResource("2_btngd")
+theme_override_styles/pressed = ExtResource("2_btngd")
+script = ExtResource("4_gmbtn")
+
+[node name="NewBadge" type="Panel" parent="TournamentCard"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -16.0
+offset_top = -12.0
+offset_right = 36.0
+offset_bottom = 16.0
+grow_horizontal = 0
+rotation = 0.10472
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_new_badge")
+
+[node name="NewText" type="Label" parent="TournamentCard/NewBadge"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("5_font_lilita")
+theme_override_font_sizes/font_size = 16
+text = "NEW"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TopHBox" type="HBoxContainer" parent="TournamentCard"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 24.0
+offset_top = 10.0
+offset_right = -24.0
+offset_bottom = 86.0
+grow_horizontal = 2
+theme_override_constants/separation = 16
+
+[node name="TrophyIcon" type="TextureRect" parent="TournamentCard/TopHBox"]
+custom_minimum_size = Vector2(56, 56)
+layout_mode = 2
+size_flags_vertical = 4
+mouse_filter = 2
+texture = ExtResource("9_trophy")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="TextCol" type="VBoxContainer" parent="TournamentCard/TopHBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="Title" type="Label" parent="TournamentCard/TopHBox/TextCol"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0.0431373, 0.0470588, 0.117647, 1)
+theme_override_constants/outline_size = 6
+theme_override_fonts/font = ExtResource("5_font_lilita")
+theme_override_font_sizes/font_size = 34
+text = "TOURNAMENT"
+
+[node name="Subtext" type="Label" parent="TournamentCard/TopHBox/TextCol"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.0431373, 0.0470588, 0.117647, 1)
+theme_override_fonts/font = ExtResource("5_font_lilita")
+theme_override_font_sizes/font_size = 18
+text = "GLOBAL RANKED SEASON"
+
+[node name="OnlineBar" type="Panel" parent="TournamentCard"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 16.0
+offset_top = -42.0
+offset_right = -16.0
+offset_bottom = -10.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_online_bar")
+
+[node name="HBox" type="HBoxContainer" parent="TournamentCard/OnlineBar"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="GreenDot" type="ColorRect" parent="TournamentCard/OnlineBar/HBox"]
+custom_minimum_size = Vector2(10, 10)
+layout_mode = 2
+size_flags_vertical = 4
+mouse_filter = 2
+color = Color(0.517647, 0.8, 0.0862745, 1)
+
+[node name="OnlineText" type="Label" parent="TournamentCard/OnlineBar/HBox"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_font_lilita")
+theme_override_font_sizes/font_size = 17
+text = " ONLINE MATCH"
+vertical_alignment = 1

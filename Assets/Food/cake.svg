@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96">
+  <defs>
+    <linearGradient id="creamGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="100%" stop-color="#fce7f3"/>
+    </linearGradient>
+    <linearGradient id="spongeGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#fed7aa"/>
+      <stop offset="100%" stop-color="#f59e0b"/>
+    </linearGradient>
+    <radialGradient id="cherryGrad" cx="44" cy="18" r="14" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#fda4af"/>
+      <stop offset="40%" stop-color="#e11d48"/>
+      <stop offset="100%" stop-color="#881337"/>
+    </radialGradient>
+  </defs>
+  <!-- Shadow -->
+  <ellipse cx="48" cy="84" rx="36" ry="8" fill="rgba(0,0,0,0.22)"/>
+  <!-- Cake Base Wedge -->
+  <path d="M14 62 L82 46 L82 72 L14 82 Z" fill="url(#spongeGrad)" stroke="#78350f" stroke-width="2.5"/>
+  <!-- Jam Layer -->
+  <path d="M14 69 L82 56 L82 62 L14 74 Z" fill="#e11d48"/>
+  <!-- Top Frosting Slope -->
+  <path d="M14 62 L48 30 L82 46 Z" fill="url(#creamGrad)" stroke="#cbd5e1" stroke-width="2"/>
+  <!-- Frosting Drips on side -->
+  <path d="M14 62 Q20 70 26 62 Q32 72 38 60 Q44 70 52 58 Q60 68 68 56 Q76 64 82 46" fill="none" stroke="#ffffff" stroke-width="4.5" stroke-linecap="round"/>
+  <!-- Swirl Cream on top -->
+  <ellipse cx="48" cy="30" rx="14" ry="7" fill="#ffffff" stroke="#e2e8f0" stroke-width="1.5"/>
+  <!-- Cherry on Top -->
+  <circle cx="48" cy="22" r="10" fill="url(#cherryGrad)" stroke="#4c0519" stroke-width="2"/>
+  <!-- Cherry Specular -->
+  <circle cx="45" cy="18" r="2.8" fill="#ffffff"/>
+  <!-- Cherry Stem -->
+  <path d="M48 14 C54 6, 62 8, 64 2" fill="none" stroke="#15803d" stroke-width="2.5" stroke-linecap="round"/>
+  <!-- Rainbow Sprinkles -->
+  <rect x="30" y="44" width="6" height="2" rx="1" transform="rotate(30 30 44)" fill="#38bdf8"/>
+  <rect x="52" y="38" width="6" height="2" rx="1" transform="rotate(-25 52 38)" fill="#facc15"/>
+  <rect x="66" y="48" width="6" height="2" rx="1" transform="rotate(40 66 48)" fill="#4ade80"/>
+  <rect x="40" y="52" width="6" height="2" rx="1" transform="rotate(-15 40 52)" fill="#a855f7"/>
+</svg>
+

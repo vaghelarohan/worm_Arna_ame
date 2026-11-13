@@ -1,0 +1,284 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://Scripts/UI/GameOverScreen.gd" id="1_gosc"]
+[ext_resource type="StyleBox" path="res://Resources/panel_style.tres" id="2_pnst"]
+[ext_resource type="FontFile" path="res://Assets/Fonts/LilitaOne-Regular.ttf" id="3_lilita"]
+[ext_resource type="FontFile" path="res://Assets/Fonts/Fredoka.ttf" id="4_fredoka"]
+[ext_resource type="StyleBox" path="res://Resources/tile_style.tres" id="5_tile"]
+[ext_resource type="Texture2D" path="res://Assets/Icons/coin.svg" id="6_coin"]
+[ext_resource type="StyleBox" path="res://Resources/btn_green.tres" id="7_btngr"]
+[ext_resource type="StyleBox" path="res://Resources/btn_purple.tres" id="8_btnpr"]
+[ext_resource type="Script" path="res://Scripts/UI/GameButton.gd" id="9_gmbtn"]
+[ext_resource type="Texture2D" path="res://Assets/Icons/rotate_ccw.svg" id="10_rot"]
+[ext_resource type="Texture2D" path="res://Assets/Icons/home.svg" id="11_home"]
+
+[node name="GameOverScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_gosc")
+
+[node name="Backdrop" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0431373, 0.0470588, 0.117647, 0.74902)
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="CenterContainer"]
+custom_minimum_size = Vector2(520, 520)
+layout_mode = 2
+theme_override_styles/panel = ExtResource("2_pnst")
+
+[node name="VBox" type="VBoxContainer" parent="CenterContainer/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 40.0
+offset_top = 28.0
+offset_right = -40.0
+offset_bottom = -28.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 16
+
+[node name="Title" type="Label" parent="CenterContainer/Panel/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.937255, 0.266667, 0.266667, 1)
+theme_override_colors/font_outline_color = Color(0.0431373, 0.0470588, 0.117647, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("3_lilita")
+theme_override_font_sizes/font_size = 56
+text = "GAME OVER"
+horizontal_alignment = 1
+
+[node name="NewBest" type="Label" parent="CenterContainer/Panel/VBox"]
+visible = false
+layout_mode = 2
+theme_override_colors/font_color = Color(0.517647, 0.8, 0.0862745, 1)
+theme_override_fonts/font = ExtResource("3_lilita")
+theme_override_font_sizes/font_size = 24
+text = "NEW BEST!"
+horizontal_alignment = 1
+
+[node name="Grid" type="GridContainer" parent="CenterContainer/Panel/VBox"]
+layout_mode = 2
+theme_override_constants/h_separation = 14
+theme_override_constants/v_separation = 14
+columns = 2
+
+[node name="StatScore" type="Panel" parent="CenterContainer/Panel/VBox/Grid"]
+custom_minimum_size = Vector2(210, 72)
+layout_mode = 2
+theme_override_styles/panel = ExtResource("5_tile")
+
+[node name="Col" type="VBoxContainer" parent="CenterContainer/Panel/VBox/Grid/StatScore"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 12.0
+offset_right = -12.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Lbl" type="Label" parent="CenterContainer/Panel/VBox/Grid/StatScore/Col"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.701961, 0.721569, 0.85098, 1)
+theme_override_fonts/font = ExtResource("4_fredoka")
+theme_override_font_sizes/font_size = 12
+text = "FINAL SCORE"
+
+[node name="Val" type="Label" parent="CenterContainer/Panel/VBox/Grid/StatScore/Col"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.984314, 0.74902, 0.141176, 1)
+theme_override_fonts/font = ExtResource("3_lilita")
+theme_override_font_sizes/font_size = 26
+text = "0"
+
+[node name="StatKills" type="Panel" parent="CenterContainer/Panel/VBox/Grid"]
+custom_minimum_size = Vector2(210, 72)
+layout_mode = 2
+theme_override_styles/panel = ExtResource("5_tile")
+
+[node name="Col" type="VBoxContainer" parent="CenterContainer/Panel/VBox/Grid/StatKills"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 12.0
+offset_right = -12.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Lbl" type="Label" parent="CenterContainer/Panel/VBox/Grid/StatKills/Col"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.701961, 0.721569, 0.85098, 1)
+theme_override_fonts/font = ExtResource("4_fredoka")
+theme_override_font_sizes/font_size = 12
+text = "TOTAL KILLS"
+
+[node name="Val" type="Label" parent="CenterContainer/Panel/VBox/Grid/StatKills/Col"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.984314, 0.74902, 0.141176, 1)
+theme_override_fonts/font = ExtResource("3_lilita")
+theme_override_font_sizes/font_size = 26
+text = "0"
+
+[node name="StatCoins" type="Panel" parent="CenterContainer/Panel/VBox/Grid"]
+custom_minimum_size = Vector2(210, 72)
+layout_mode = 2
+theme_override_styles/panel = ExtResource("5_tile")
+
+[node name="Col" type="VBoxContainer" parent="CenterContainer/Panel/VBox/Grid/StatCoins"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 12.0
+offset_right = -12.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Lbl" type="Label" parent="CenterContainer/Panel/VBox/Grid/StatCoins/Col"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.701961, 0.721569, 0.85098, 1)
+theme_override_fonts/font = ExtResource("4_fredoka")
+theme_override_font_sizes/font_size = 12
+text = "COINS EARNED"
+
+[node name="HBox" type="HBoxContainer" parent="CenterContainer/Panel/VBox/Grid/StatCoins/Col"]
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="Icon" type="TextureRect" parent="CenterContainer/Panel/VBox/Grid/StatCoins/Col/HBox"]
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+size_flags_vertical = 4
+texture = ExtResource("6_coin")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Val" type="Label" parent="CenterContainer/Panel/VBox/Grid/StatCoins/Col/HBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.984314, 0.74902, 0.141176, 1)
+theme_override_fonts/font = ExtResource("3_lilita")
+theme_override_font_sizes/font_size = 26
+text = "0"
+
+[node name="StatBest" type="Panel" parent="CenterContainer/Panel/VBox/Grid"]
+custom_minimum_size = Vector2(210, 72)
+layout_mode = 2
+theme_override_styles/panel = ExtResource("5_tile")
+
+[node name="Col" type="VBoxContainer" parent="CenterContainer/Panel/VBox/Grid/StatBest"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 12.0
+offset_right = -12.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Lbl" type="Label" parent="CenterContainer/Panel/VBox/Grid/StatBest/Col"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.701961, 0.721569, 0.85098, 1)
+theme_override_fonts/font = ExtResource("4_fredoka")
+theme_override_font_sizes/font_size = 12
+text = "BEST SCORE"
+
+[node name="Val" type="Label" parent="CenterContainer/Panel/VBox/Grid/StatBest/Col"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.984314, 0.74902, 0.141176, 1)
+theme_override_fonts/font = ExtResource("3_lilita")
+theme_override_font_sizes/font_size = 26
+text = "0"
+
+[node name="AgainBtn" type="Button" parent="CenterContainer/Panel/VBox"]
+custom_minimum_size = Vector2(0, 68)
+layout_mode = 2
+theme_override_styles/normal = ExtResource("7_btngr")
+theme_override_styles/hover = ExtResource("7_btngr")
+theme_override_styles/pressed = ExtResource("7_btngr")
+script = ExtResource("9_gmbtn")
+
+[node name="HBox" type="HBoxContainer" parent="CenterContainer/Panel/VBox/AgainBtn"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 14
+alignment = 1
+
+[node name="Icon" type="TextureRect" parent="CenterContainer/Panel/VBox/AgainBtn/HBox"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+size_flags_vertical = 4
+mouse_filter = 2
+texture = ExtResource("10_rot")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Text" type="Label" parent="CenterContainer/Panel/VBox/AgainBtn/HBox"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0.0431373, 0.0470588, 0.117647, 1)
+theme_override_constants/outline_size = 6
+theme_override_fonts/font = ExtResource("3_lilita")
+theme_override_font_sizes/font_size = 28
+text = "PLAY AGAIN"
+
+[node name="MenuBtn" type="Button" parent="CenterContainer/Panel/VBox"]
+custom_minimum_size = Vector2(0, 68)
+layout_mode = 2
+theme_override_styles/normal = ExtResource("8_btnpr")
+theme_override_styles/hover = ExtResource("8_btnpr")
+theme_override_styles/pressed = ExtResource("8_btnpr")
+script = ExtResource("9_gmbtn")
+
+[node name="HBox" type="HBoxContainer" parent="CenterContainer/Panel/VBox/MenuBtn"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 14
+alignment = 1
+
+[node name="Icon" type="TextureRect" parent="CenterContainer/Panel/VBox/MenuBtn/HBox"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+size_flags_vertical = 4
+mouse_filter = 2
+texture = ExtResource("11_home")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Text" type="Label" parent="CenterContainer/Panel/VBox/MenuBtn/HBox"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0.0431373, 0.0470588, 0.117647, 1)
+theme_override_constants/outline_size = 6
+theme_override_fonts/font = ExtResource("3_lilita")
+theme_override_font_sizes/font_size = 28
+text = "MAIN MENU"

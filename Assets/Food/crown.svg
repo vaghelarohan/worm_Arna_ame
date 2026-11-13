@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96">
+  <defs>
+    <radialGradient id="crGlow" cx="48" cy="48" r="44" gradientUnits="userSpaceOnUse">
+      <stop offset="60%" stop-color="rgba(250, 204, 21, 0)"/>
+      <stop offset="90%" stop-color="rgba(250, 204, 21, 0.45)"/>
+      <stop offset="100%" stop-color="rgba(250, 204, 21, 0.95)"/>
+    </radialGradient>
+    <linearGradient id="goldCr" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="35%" stop-color="#fde047"/>
+      <stop offset="75%" stop-color="#eab308"/>
+      <stop offset="100%" stop-color="#a16207"/>
+    </linearGradient>
+  </defs>
+  <!-- Floor aura ring -->
+  <circle cx="48" cy="48" r="42" fill="none" stroke="#facc15" stroke-width="4" stroke-opacity="0.9"/>
+  <circle cx="48" cy="48" r="42" fill="url(#crGlow)"/>
+  <!-- Velvet cushion base -->
+  <path d="M22 68 C22 64 74 64 74 68 L70 78 L26 78 Z" fill="#991b1b" stroke="#450a0a" stroke-width="2.5"/>
+  <!-- Crown body -->
+  <path d="M18 36 L28 72 L68 72 L78 36 L60 52 L48 24 L36 52 Z" fill="url(#goldCr)" stroke="#713f12" stroke-width="3" stroke-linejoin="round"/>
+  <!-- Jewels on tips -->
+  <circle cx="18" cy="34" r="5" fill="#ef4444" stroke="#7f1d1d" stroke-width="2"/>
+  <circle cx="48" cy="22" r="6" fill="#38bdf8" stroke="#0369a1" stroke-width="2"/>
+  <circle cx="78" cy="34" r="5" fill="#ef4444" stroke="#7f1d1d" stroke-width="2"/>
+  <!-- Headband jewels -->
+  <circle cx="34" cy="74" r="3" fill="#22c55e"/>
+  <circle cx="48" cy="74" r="3.5" fill="#ef4444"/>
+  <circle cx="62" cy="74" r="3" fill="#38bdf8"/>
+</svg>

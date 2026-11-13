@@ -1,0 +1,68 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://Scripts/UI/ProfileModal.gd" id="1_pfsc"]
+[ext_resource type="Texture2D" path="res://Assets/Characters/worm-hero.png" id="2_whero"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_avatar_big"]
+bg_color = Color(0.145098, 0.388235, 0.921569, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.133333, 0.827451, 0.933333, 1)
+corner_radius_top_left = 112
+corner_radius_top_right = 112
+corner_radius_bottom_right = 112
+corner_radius_bottom_left = 112
+shadow_color = Color(0.133333, 0.827451, 0.933333, 0.6)
+shadow_size = 20
+
+[node name="ProfileModal" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_pfsc")
+
+[node name="HBox" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 32
+alignment = 1
+
+[node name="Avatar" type="Panel" parent="HBox"]
+custom_minimum_size = Vector2(224, 224)
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_avatar_big")
+
+[node name="Img" type="TextureRect" parent="HBox/Avatar"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -90.0
+offset_top = -90.0
+offset_right = 90.0
+offset_bottom = 90.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_whero")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="Grid" type="GridContainer" parent="HBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+theme_override_constants/h_separation = 16
+theme_override_constants/v_separation = 12
+columns = 2

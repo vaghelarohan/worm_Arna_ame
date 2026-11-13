@@ -1,0 +1,356 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://Scripts/UI/ProfileModal.gd" id="1_pfsc"]
+[ext_resource type="Texture2D" path="res://Assets/Characters/Avatars/avatar_hero.png" id="2_whero"]
+[ext_resource type="FontFile" path="res://Assets/Fonts/LilitaOne-Regular.ttf" id="3_lilita"]
+[ext_resource type="FontFile" path="res://Assets/Fonts/Fredoka.ttf" id="4_fredoka"]
+[ext_resource type="StyleBox" path="res://Resources/btn_profile_save_normal.tres" id="5_btnsave_n"]
+[ext_resource type="StyleBox" path="res://Resources/btn_profile_save_hover.tres" id="6_btnsave_h"]
+[ext_resource type="StyleBox" path="res://Resources/btn_profile_save_pressed.tres" id="7_btnsave_p"]
+[ext_resource type="StyleBox" path="res://Resources/btn_profile_cancel_normal.tres" id="8_btncan_n"]
+[ext_resource type="StyleBox" path="res://Resources/btn_profile_cancel_hover.tres" id="9_btncan_h"]
+[ext_resource type="StyleBox" path="res://Resources/btn_profile_cancel_pressed.tres" id="10_btncan_p"]
+[ext_resource type="StyleBox" path="res://Resources/tile_style.tres" id="11_tile"]
+[ext_resource type="Script" path="res://Scripts/UI/GameButton.gd" id="12_gmbtn"]
+[ext_resource type="Texture2D" path="res://Assets/Icons/pencil.svg" id="13_pencil"]
+[ext_resource type="Texture2D" path="res://Assets/Icons/crown.svg" id="14_crown"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_avatar_glow"]
+bg_color = Color(0, 0, 0, 0)
+corner_radius_top_left = 102
+corner_radius_top_right = 102
+corner_radius_bottom_right = 102
+corner_radius_bottom_left = 102
+shadow_color = Color(0, 0.85, 1, 0.32)
+shadow_size = 20
+shadow_offset = Vector2(0, 5)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_avatar_outer"]
+bg_color = Color(0.04, 0.08, 0.22, 0.98)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.12, 0.88, 0.96, 1)
+corner_radius_top_left = 100
+corner_radius_top_right = 100
+corner_radius_bottom_right = 100
+corner_radius_bottom_left = 100
+shadow_color = Color(0.02, 0.04, 0.1, 0.7)
+shadow_size = 10
+shadow_offset = Vector2(0, 4)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_avatar_inner"]
+bg_color = Color(0.05, 0.1, 0.26, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.08, 0.45, 0.75, 0.6)
+corner_radius_top_left = 96
+corner_radius_top_right = 96
+corner_radius_bottom_right = 96
+corner_radius_bottom_left = 96
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_id_pill"]
+bg_color = Color(0.04, 0.06, 0.16, 0.92)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.960784, 0.619608, 0.0431373, 0.85)
+corner_radius_top_left = 14
+corner_radius_top_right = 14
+corner_radius_bottom_right = 14
+corner_radius_bottom_left = 14
+shadow_color = Color(0.960784, 0.619608, 0.0431373, 0.35)
+shadow_size = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rank_pill"]
+bg_color = Color(0.04, 0.08, 0.22, 0.92)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.133333, 0.827451, 0.933333, 0.75)
+corner_radius_top_left = 14
+corner_radius_top_right = 14
+corner_radius_bottom_right = 14
+corner_radius_bottom_left = 14
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_input"]
+content_margin_left = 16.0
+content_margin_top = 8.0
+content_margin_right = 16.0
+content_margin_bottom = 8.0
+bg_color = Color(0.0431373, 0.0470588, 0.117647, 0.95)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.133333, 0.827451, 0.933333, 0.85)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[node name="ProfileModal" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_pfsc")
+
+[node name="HBox" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 32
+alignment = 1
+
+[node name="LeftCol" type="VBoxContainer" parent="HBox"]
+custom_minimum_size = Vector2(310, 0)
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_constants/separation = 12
+alignment = 1
+
+[node name="AvatarContainer" type="Control" parent="HBox/LeftCol"]
+custom_minimum_size = Vector2(204, 204)
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="GlowShadow" type="Panel" parent="HBox/LeftCol/AvatarContainer"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_avatar_glow")
+
+[node name="OuterRing" type="Panel" parent="HBox/LeftCol/AvatarContainer"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = -100.0
+offset_right = 100.0
+offset_bottom = 100.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_avatar_outer")
+
+[node name="Avatar" type="Panel" parent="HBox/LeftCol/AvatarContainer"]
+clip_contents = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -96.0
+offset_top = -96.0
+offset_right = 96.0
+offset_bottom = 96.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_avatar_inner")
+
+[node name="Img" type="TextureRect" parent="HBox/LeftCol/AvatarContainer/Avatar"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -78.0
+offset_top = -78.0
+offset_right = 78.0
+offset_bottom = 78.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_whero")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="CrownIcon" type="TextureRect" parent="HBox/LeftCol/AvatarContainer"]
+custom_minimum_size = Vector2(46, 46)
+layout_mode = 0
+offset_left = 12.0
+offset_top = -22.0
+offset_right = 58.0
+offset_bottom = 24.0
+rotation = -0.20944
+texture = ExtResource("14_crown")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="IdPill" type="Panel" parent="HBox/LeftCol"]
+custom_minimum_size = Vector2(170, 34)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_id_pill")
+
+[node name="PlayerIdLabel" type="Label" parent="HBox/LeftCol/IdPill"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.984314, 0.74902, 0.141176, 1)
+theme_override_fonts/font = ExtResource("4_fredoka")
+theme_override_font_sizes/font_size = 18
+text = "#W-2707"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RankPill" type="Panel" parent="HBox/LeftCol"]
+custom_minimum_size = Vector2(210, 36)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_rank_pill")
+
+[node name="RankLabel" type="Label" parent="HBox/LeftCol/RankPill"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.133333, 0.827451, 0.933333, 1)
+theme_override_fonts/font = ExtResource("3_lilita")
+theme_override_font_sizes/font_size = 18
+text = "👑 RANK: NOVICE"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LevelLabel" type="Label" parent="HBox/LeftCol"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.58, 0.65, 0.78, 1)
+theme_override_fonts/font = ExtResource("4_fredoka")
+theme_override_font_sizes/font_size = 14
+text = "LEVEL 5"
+horizontal_alignment = 1
+
+[node name="RightCol" type="VBoxContainer" parent="HBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+theme_override_constants/separation = 14
+alignment = 1
+
+[node name="EditSection" type="PanelContainer" parent="HBox/RightCol"]
+layout_mode = 2
+theme_override_styles/panel = ExtResource("11_tile")
+
+[node name="Pad" type="MarginContainer" parent="HBox/RightCol/EditSection"]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 12
+
+[node name="VBox" type="VBoxContainer" parent="HBox/RightCol/EditSection/Pad"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="TitleRow" type="HBoxContainer" parent="HBox/RightCol/EditSection/Pad/VBox"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="Icon" type="TextureRect" parent="HBox/RightCol/EditSection/Pad/VBox/TitleRow"]
+custom_minimum_size = Vector2(18, 18)
+layout_mode = 2
+size_flags_vertical = 4
+texture = ExtResource("13_pencil")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Lbl" type="Label" parent="HBox/RightCol/EditSection/Pad/VBox/TitleRow"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.133333, 0.827451, 0.933333, 1)
+theme_override_fonts/font = ExtResource("4_fredoka")
+theme_override_font_sizes/font_size = 15
+text = "EDIT PLAYER USERNAME"
+
+[node name="Row" type="HBoxContainer" parent="HBox/RightCol/EditSection/Pad/VBox"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="UsernameInput" type="LineEdit" parent="HBox/RightCol/EditSection/Pad/VBox/Row"]
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("3_lilita")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_input")
+theme_override_styles/focus = SubResource("StyleBoxFlat_input")
+placeholder_text = "Enter username"
+max_length = 16
+
+[node name="SaveBtn" type="Button" parent="HBox/RightCol/EditSection/Pad/VBox/Row"]
+custom_minimum_size = Vector2(110, 48)
+layout_mode = 2
+focus_mode = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("3_lilita")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = ExtResource("5_btnsave_n")
+theme_override_styles/hover = ExtResource("6_btnsave_h")
+theme_override_styles/pressed = ExtResource("7_btnsave_p")
+theme_override_styles/focus = ExtResource("6_btnsave_h")
+text = "SAVE"
+script = ExtResource("12_gmbtn")
+hover_scale = 1.04
+pressed_scale = 0.95
+hover_duration = 0.16
+style_normal = ExtResource("5_btnsave_n")
+style_hover = ExtResource("6_btnsave_h")
+style_pressed = ExtResource("7_btnsave_p")
+
+[node name="CancelBtn" type="Button" parent="HBox/RightCol/EditSection/Pad/VBox/Row"]
+custom_minimum_size = Vector2(110, 48)
+layout_mode = 2
+focus_mode = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("3_lilita")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = ExtResource("8_btncan_n")
+theme_override_styles/hover = ExtResource("9_btncan_h")
+theme_override_styles/pressed = ExtResource("10_btncan_p")
+theme_override_styles/focus = ExtResource("9_btncan_h")
+text = "CANCEL"
+script = ExtResource("12_gmbtn")
+hover_scale = 1.04
+pressed_scale = 0.95
+hover_duration = 0.16
+style_normal = ExtResource("8_btncan_n")
+style_hover = ExtResource("9_btncan_h")
+style_pressed = ExtResource("10_btncan_p")
+
+[node name="FeedbackLbl" type="Label" parent="HBox/RightCol/EditSection/Pad/VBox"]
+visible = false
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_fredoka")
+theme_override_font_sizes/font_size = 13
+text = "Username saved successfully!"
+
+[node name="Grid" type="GridContainer" parent="HBox/RightCol"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/h_separation = 12
+theme_override_constants/v_separation = 8
+columns = 2

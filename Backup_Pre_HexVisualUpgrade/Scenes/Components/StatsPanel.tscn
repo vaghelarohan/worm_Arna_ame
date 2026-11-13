@@ -1,0 +1,240 @@
+[gd_scene format=3]
+
+[ext_resource type="StyleBox" path="res://Resources/panel_style.tres" id="1_pnst"]
+[ext_resource type="Script" path="res://Scripts/UI/StatsPanel.gd" id="2_stsc"]
+[ext_resource type="FontFile" path="res://Assets/Fonts/LilitaOne-Regular.ttf" id="3_font_lilita"]
+[ext_resource type="FontFile" path="res://Assets/Fonts/Fredoka.ttf" id="4_font_fredoka"]
+[ext_resource type="Texture2D" path="res://Assets/Icons/coin.svg" id="5_coin"]
+[ext_resource type="Texture2D" path="res://Assets/Icons/skull.svg" id="6_skull"]
+[ext_resource type="Texture2D" path="res://Assets/Icons/trophy.svg" id="7_trophy"]
+[ext_resource type="Texture2D" path="res://Assets/Icons/star.svg" id="8_star"]
+[ext_resource type="Texture2D" path="res://Assets/Icons/gem.svg" id="9_gem"]
+[ext_resource type="Texture2D" path="res://Assets/Icons/shield.svg" id="10_shield"]
+
+[node name="StatsPanel" type="Panel"]
+custom_minimum_size = Vector2(420, 150)
+offset_right = 420.0
+offset_bottom = 150.0
+theme_override_styles/panel = ExtResource("1_pnst")
+script = ExtResource("2_stsc")
+
+[node name="Title" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 24.0
+offset_top = 12.0
+offset_right = -24.0
+offset_bottom = 36.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.984314, 0.74902, 0.141176, 1)
+theme_override_fonts/font = ExtResource("3_font_lilita")
+theme_override_font_sizes/font_size = 20
+text = "PLAYER STATISTICS"
+
+[node name="Grid" type="GridContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 20.0
+offset_top = 44.0
+offset_right = -20.0
+offset_bottom = -12.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/h_separation = 16
+theme_override_constants/v_separation = 8
+columns = 3
+
+[node name="CoinsStat" type="HBoxContainer" parent="Grid"]
+custom_minimum_size = Vector2(115, 42)
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="Icon" type="TextureRect" parent="Grid/CoinsStat"]
+custom_minimum_size = Vector2(34, 34)
+layout_mode = 2
+size_flags_vertical = 4
+texture = ExtResource("5_coin")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="TextCol" type="VBoxContainer" parent="Grid/CoinsStat"]
+layout_mode = 2
+theme_override_constants/separation = -2
+
+[node name="Val" type="Label" parent="Grid/CoinsStat/TextCol"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0.0431373, 0.0470588, 0.117647, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("3_font_lilita")
+theme_override_font_sizes/font_size = 20
+text = "105"
+
+[node name="Lbl" type="Label" parent="Grid/CoinsStat/TextCol"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.701961, 0.721569, 0.85098, 1)
+theme_override_fonts/font = ExtResource("4_font_fredoka")
+theme_override_font_sizes/font_size = 11
+text = "COINS"
+
+[node name="KillsStat" type="HBoxContainer" parent="Grid"]
+custom_minimum_size = Vector2(115, 42)
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="Icon" type="TextureRect" parent="Grid/KillsStat"]
+custom_minimum_size = Vector2(34, 34)
+layout_mode = 2
+size_flags_vertical = 4
+texture = ExtResource("6_skull")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="TextCol" type="VBoxContainer" parent="Grid/KillsStat"]
+layout_mode = 2
+theme_override_constants/separation = -2
+
+[node name="Val" type="Label" parent="Grid/KillsStat/TextCol"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0.0431373, 0.0470588, 0.117647, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("3_font_lilita")
+theme_override_font_sizes/font_size = 20
+text = "24"
+
+[node name="Lbl" type="Label" parent="Grid/KillsStat/TextCol"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.701961, 0.721569, 0.85098, 1)
+theme_override_fonts/font = ExtResource("4_font_fredoka")
+theme_override_font_sizes/font_size = 11
+text = "KILLS"
+
+[node name="TrophiesStat" type="HBoxContainer" parent="Grid"]
+custom_minimum_size = Vector2(115, 42)
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="Icon" type="TextureRect" parent="Grid/TrophiesStat"]
+custom_minimum_size = Vector2(34, 34)
+layout_mode = 2
+size_flags_vertical = 4
+texture = ExtResource("7_trophy")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="TextCol" type="VBoxContainer" parent="Grid/TrophiesStat"]
+layout_mode = 2
+theme_override_constants/separation = -2
+
+[node name="Val" type="Label" parent="Grid/TrophiesStat/TextCol"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0.0431373, 0.0470588, 0.117647, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("3_font_lilita")
+theme_override_font_sizes/font_size = 20
+text = "117"
+
+[node name="Lbl" type="Label" parent="Grid/TrophiesStat/TextCol"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.701961, 0.721569, 0.85098, 1)
+theme_override_fonts/font = ExtResource("4_font_fredoka")
+theme_override_font_sizes/font_size = 11
+text = "TROPHIES"
+
+[node name="BestStat" type="HBoxContainer" parent="Grid"]
+custom_minimum_size = Vector2(115, 42)
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="Icon" type="TextureRect" parent="Grid/BestStat"]
+custom_minimum_size = Vector2(34, 34)
+layout_mode = 2
+size_flags_vertical = 4
+texture = ExtResource("8_star")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="TextCol" type="VBoxContainer" parent="Grid/BestStat"]
+layout_mode = 2
+theme_override_constants/separation = -2
+
+[node name="Val" type="Label" parent="Grid/BestStat/TextCol"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0.0431373, 0.0470588, 0.117647, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("3_font_lilita")
+theme_override_font_sizes/font_size = 20
+text = "1,250"
+
+[node name="Lbl" type="Label" parent="Grid/BestStat/TextCol"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.701961, 0.721569, 0.85098, 1)
+theme_override_fonts/font = ExtResource("4_font_fredoka")
+theme_override_font_sizes/font_size = 11
+text = "BEST"
+
+[node name="DiamondsStat" type="HBoxContainer" parent="Grid"]
+custom_minimum_size = Vector2(115, 42)
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="Icon" type="TextureRect" parent="Grid/DiamondsStat"]
+custom_minimum_size = Vector2(34, 34)
+layout_mode = 2
+size_flags_vertical = 4
+texture = ExtResource("9_gem")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="TextCol" type="VBoxContainer" parent="Grid/DiamondsStat"]
+layout_mode = 2
+theme_override_constants/separation = -2
+
+[node name="Val" type="Label" parent="Grid/DiamondsStat/TextCol"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0.0431373, 0.0470588, 0.117647, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("3_font_lilita")
+theme_override_font_sizes/font_size = 20
+text = "20"
+
+[node name="Lbl" type="Label" parent="Grid/DiamondsStat/TextCol"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.701961, 0.721569, 0.85098, 1)
+theme_override_fonts/font = ExtResource("4_font_fredoka")
+theme_override_font_sizes/font_size = 11
+text = "DIAMONDS"
+
+[node name="LevelStat" type="HBoxContainer" parent="Grid"]
+custom_minimum_size = Vector2(115, 42)
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="Icon" type="TextureRect" parent="Grid/LevelStat"]
+custom_minimum_size = Vector2(34, 34)
+layout_mode = 2
+size_flags_vertical = 4
+texture = ExtResource("10_shield")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="TextCol" type="VBoxContainer" parent="Grid/LevelStat"]
+layout_mode = 2
+theme_override_constants/separation = -2
+
+[node name="Val" type="Label" parent="Grid/LevelStat/TextCol"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0.0431373, 0.0470588, 0.117647, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("3_font_lilita")
+theme_override_font_sizes/font_size = 20
+text = "Lv. 3"
+
+[node name="Lbl" type="Label" parent="Grid/LevelStat/TextCol"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.701961, 0.721569, 0.85098, 1)
+theme_override_fonts/font = ExtResource("4_font_fredoka")
+theme_override_font_sizes/font_size = 11
+text = "LEVEL"

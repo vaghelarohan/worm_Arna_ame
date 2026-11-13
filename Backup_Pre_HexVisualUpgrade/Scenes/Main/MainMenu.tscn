@@ -1,0 +1,152 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://Scripts/UI/MainMenu.gd" id="1_mmsc"]
+[ext_resource type="PackedScene" path="res://Scenes/Components/ArenaBackground.tscn" id="2_bgsc"]
+[ext_resource type="PackedScene" path="res://Scenes/Components/ProfileCard.tscn" id="3_pcsc"]
+[ext_resource type="Texture2D" path="res://Assets/UI/logo.png" id="4_logo"]
+[ext_resource type="PackedScene" path="res://Scenes/Components/StatsPanel.tscn" id="5_stsc"]
+[ext_resource type="StyleBox" path="res://Resources/btn_blue.tres" id="6_btnbl"]
+[ext_resource type="Script" path="res://Scripts/UI/GameButton.gd" id="7_gmbtn"]
+[ext_resource type="Texture2D" path="res://Assets/Icons/settings.svg" id="8_sett"]
+[ext_resource type="PackedScene" path="res://Scenes/Components/SideButtons.tscn" id="9_sbsc"]
+[ext_resource type="PackedScene" path="res://Scenes/Components/HeroWorm.tscn" id="10_hwsc"]
+[ext_resource type="PackedScene" path="res://Scenes/Components/ModeCards.tscn" id="11_mcsc"]
+[ext_resource type="PackedScene" path="res://Scenes/Components/BottomNav.tscn" id="12_bnsc"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_mmsc")
+
+[node name="ArenaBackground" parent="." instance=ExtResource("2_bgsc")]
+layout_mode = 1
+
+[node name="ContentStage" type="Control" parent="."]
+custom_minimum_size = Vector2(1600, 900)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -800.0
+offset_top = -450.0
+offset_right = 800.0
+offset_bottom = 450.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ProfileCard" parent="ContentStage" instance=ExtResource("3_pcsc")]
+layout_mode = 0
+offset_left = 32.0
+offset_top = 24.0
+offset_right = 522.0
+offset_bottom = 184.0
+
+[node name="Logo" type="TextureRect" parent="ContentStage"]
+custom_minimum_size = Vector2(514, 340)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -257.0
+offset_top = 8.0
+offset_right = 257.0
+offset_bottom = 348.0
+grow_horizontal = 2
+mouse_filter = 2
+texture = ExtResource("4_logo")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="StatsPanel" parent="ContentStage" instance=ExtResource("5_stsc")]
+layout_mode = 0
+offset_left = 1040.0
+offset_top = 24.0
+offset_right = 1460.0
+offset_bottom = 174.0
+
+[node name="SettingsBtn" type="Button" parent="ContentStage"]
+custom_minimum_size = Vector2(78, 78)
+layout_mode = 0
+offset_left = 1486.0
+offset_top = 24.0
+offset_right = 1564.0
+offset_bottom = 102.0
+theme_override_styles/normal = ExtResource("6_btnbl")
+theme_override_styles/hover = ExtResource("6_btnbl")
+theme_override_styles/pressed = ExtResource("6_btnbl")
+script = ExtResource("7_gmbtn")
+
+[node name="Icon" type="TextureRect" parent="ContentStage/SettingsBtn"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -22.0
+offset_top = -22.0
+offset_right = 22.0
+offset_bottom = 22.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("8_sett")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="SideButtons" parent="ContentStage" instance=ExtResource("9_sbsc")]
+layout_mode = 0
+offset_left = 32.0
+offset_top = 260.0
+offset_right = 118.0
+offset_bottom = 570.0
+
+[node name="HeroWorm" parent="ContentStage" instance=ExtResource("10_hwsc")]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -320.0
+offset_top = -580.0
+offset_right = 320.0
+offset_bottom = -140.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="ModeCards" parent="ContentStage" instance=ExtResource("11_mcsc")]
+layout_mode = 0
+offset_left = 1164.0
+offset_top = 280.0
+offset_right = 1564.0
+offset_bottom = 700.0
+
+[node name="BottomNav" parent="ContentStage" instance=ExtResource("12_bnsc")]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -650.0
+offset_top = -136.0
+offset_right = 650.0
+offset_bottom = -20.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="ModalLayer" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2

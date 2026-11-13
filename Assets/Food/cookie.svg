@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96">
+  <defs>
+    <radialGradient id="cookG" cx="44" cy="44" r="40" fx="38" fy="38" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#fde047"/>
+      <stop offset="45%" stop-color="#d97706"/>
+      <stop offset="100%" stop-color="#78350f"/>
+    </radialGradient>
+  </defs>
+  <!-- Cookie Body -->
+  <circle cx="48" cy="48" r="38" fill="url(#cookG)" stroke="#451a03" stroke-width="3"/>
+  <!-- Chocolate Chips -->
+  <circle cx="34" cy="32" r="6" fill="#381d0d"/>
+  <circle cx="62" cy="34" r="6.5" fill="#381d0d"/>
+  <circle cx="48" cy="48" r="7" fill="#381d0d"/>
+  <circle cx="32" cy="62" r="5.5" fill="#381d0d"/>
+  <circle cx="64" cy="60" r="6" fill="#381d0d"/>
+  <circle cx="50" cy="74" r="5" fill="#381d0d"/>
+  <!-- Highlights on chocolate chips -->
+  <circle cx="33" cy="30" r="2" fill="rgba(255,255,255,0.45)"/>
+  <circle cx="61" cy="32" r="2" fill="rgba(255,255,255,0.45)"/>
+  <circle cx="47" cy="46" r="2.2" fill="rgba(255,255,255,0.45)"/>
+  <!-- Cookie surface highlight -->
+  <ellipse cx="36" cy="24" rx="14" ry="6" transform="rotate(-20 36 24)" fill="rgba(255,255,255,0.4)"/>
+</svg>

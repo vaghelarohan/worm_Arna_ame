@@ -1,0 +1,253 @@
+[gd_scene format=3]
+
+[ext_resource type="StyleBox" path="res://Resources/tile_style.tres" id="1_tile"]
+[ext_resource type="StyleBox" path="res://Resources/btn_gold.tres" id="2_btngd"]
+[ext_resource type="FontFile" path="res://Assets/Fonts/LilitaOne-Regular.ttf" id="3_lilita"]
+[ext_resource type="FontFile" path="res://Assets/Fonts/Fredoka.ttf" id="4_fredoka"]
+
+[node name="HelpModal" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Grid" type="GridContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/h_separation = 20
+theme_override_constants/v_separation = 20
+columns = 2
+
+[node name="Step1" type="Panel" parent="Grid"]
+custom_minimum_size = Vector2(400, 110)
+layout_mode = 2
+theme_override_styles/panel = ExtResource("1_tile")
+
+[node name="HBox" type="HBoxContainer" parent="Grid/Step1"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 16.0
+offset_top = 16.0
+offset_right = -16.0
+offset_bottom = -16.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 16
+
+[node name="Badge" type="Panel" parent="Grid/Step1/HBox"]
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_styles/panel = ExtResource("2_btngd")
+
+[node name="Num" type="Label" parent="Grid/Step1/HBox/Badge"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.0431373, 0.0470588, 0.117647, 1)
+theme_override_fonts/font = ExtResource("3_lilita")
+theme_override_font_sizes/font_size = 24
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Col" type="VBoxContainer" parent="Grid/Step1/HBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="Title" type="Label" parent="Grid/Step1/HBox/Col"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.133333, 0.827451, 0.933333, 1)
+theme_override_fonts/font = ExtResource("3_lilita")
+theme_override_font_sizes/font_size = 22
+text = "Move"
+
+[node name="Desc" type="Label" parent="Grid/Step1/HBox/Col"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_fredoka")
+theme_override_font_sizes/font_size = 15
+text = "Drag or use the joystick to steer your worm."
+autowrap_mode = 3
+
+[node name="Step2" type="Panel" parent="Grid"]
+custom_minimum_size = Vector2(400, 110)
+layout_mode = 2
+theme_override_styles/panel = ExtResource("1_tile")
+
+[node name="HBox" type="HBoxContainer" parent="Grid/Step2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 16.0
+offset_top = 16.0
+offset_right = -16.0
+offset_bottom = -16.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 16
+
+[node name="Badge" type="Panel" parent="Grid/Step2/HBox"]
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_styles/panel = ExtResource("2_btngd")
+
+[node name="Num" type="Label" parent="Grid/Step2/HBox/Badge"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.0431373, 0.0470588, 0.117647, 1)
+theme_override_fonts/font = ExtResource("3_lilita")
+theme_override_font_sizes/font_size = 24
+text = "2"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Col" type="VBoxContainer" parent="Grid/Step2/HBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="Title" type="Label" parent="Grid/Step2/HBox/Col"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.133333, 0.827451, 0.933333, 1)
+theme_override_fonts/font = ExtResource("3_lilita")
+theme_override_font_sizes/font_size = 22
+text = "Eat"
+
+[node name="Desc" type="Label" parent="Grid/Step2/HBox/Col"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_fredoka")
+theme_override_font_sizes/font_size = 15
+text = "Collect glowing orbs to grow longer."
+autowrap_mode = 3
+
+[node name="Step3" type="Panel" parent="Grid"]
+custom_minimum_size = Vector2(400, 110)
+layout_mode = 2
+theme_override_styles/panel = ExtResource("1_tile")
+
+[node name="HBox" type="HBoxContainer" parent="Grid/Step3"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 16.0
+offset_top = 16.0
+offset_right = -16.0
+offset_bottom = -16.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 16
+
+[node name="Badge" type="Panel" parent="Grid/Step3/HBox"]
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_styles/panel = ExtResource("2_btngd")
+
+[node name="Num" type="Label" parent="Grid/Step3/HBox/Badge"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.0431373, 0.0470588, 0.117647, 1)
+theme_override_fonts/font = ExtResource("3_lilita")
+theme_override_font_sizes/font_size = 24
+text = "3"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Col" type="VBoxContainer" parent="Grid/Step3/HBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="Title" type="Label" parent="Grid/Step3/HBox/Col"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.133333, 0.827451, 0.933333, 1)
+theme_override_fonts/font = ExtResource("3_lilita")
+theme_override_font_sizes/font_size = 22
+text = "Boost"
+
+[node name="Desc" type="Label" parent="Grid/Step3/HBox/Col"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_fredoka")
+theme_override_font_sizes/font_size = 15
+text = "Hold boost to speed up — it costs length!"
+autowrap_mode = 3
+
+[node name="Step4" type="Panel" parent="Grid"]
+custom_minimum_size = Vector2(400, 110)
+layout_mode = 2
+theme_override_styles/panel = ExtResource("1_tile")
+
+[node name="HBox" type="HBoxContainer" parent="Grid/Step4"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 16.0
+offset_top = 16.0
+offset_right = -16.0
+offset_bottom = -16.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 16
+
+[node name="Badge" type="Panel" parent="Grid/Step4/HBox"]
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_styles/panel = ExtResource("2_btngd")
+
+[node name="Num" type="Label" parent="Grid/Step4/HBox/Badge"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.0431373, 0.0470588, 0.117647, 1)
+theme_override_fonts/font = ExtResource("3_lilita")
+theme_override_font_sizes/font_size = 24
+text = "4"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Col" type="VBoxContainer" parent="Grid/Step4/HBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="Title" type="Label" parent="Grid/Step4/HBox/Col"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.133333, 0.827451, 0.933333, 1)
+theme_override_fonts/font = ExtResource("3_lilita")
+theme_override_font_sizes/font_size = 22
+text = "Survive"
+
+[node name="Desc" type="Label" parent="Grid/Step4/HBox/Col"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_fredoka")
+theme_override_font_sizes/font_size = 15
+text = "Don't hit other worms with your head. Make them hit you."
+autowrap_mode = 3

@@ -1,0 +1,86 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://Scripts/UI/BackgroundSelectModal.gd" id="1_bgsc"]
+
+[node name="BackgroundSelectModal" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_bgsc")
+
+[node name="VBox" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 10
+
+[node name="TopSection" type="HBoxContainer" parent="VBox"]
+custom_minimum_size = Vector2(0, 160)
+layout_mode = 2
+alignment = 1
+theme_override_constants/separation = 16
+
+[node name="PreviewCard" type="Panel" parent="VBox/TopSection"]
+custom_minimum_size = Vector2(720, 160)
+layout_mode = 2
+
+[node name="PreviewCanvas" type="Control" parent="VBox/TopSection/PreviewCard"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="InfoHBox" type="HBoxContainer" parent="VBox/TopSection/PreviewCard"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 18.0
+offset_top = -48.0
+offset_right = -18.0
+offset_bottom = -10.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/separation = 12
+
+[node name="NameLbl" type="Label" parent="VBox/TopSection/PreviewCard/InfoHBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Neon Blue Arena"
+
+[node name="ActionBtn" type="Button" parent="VBox/TopSection/PreviewCard/InfoHBox"]
+custom_minimum_size = Vector2(170, 38)
+layout_mode = 2
+text = "EQUIPPED"
+
+[node name="ThemesBar" type="HBoxContainer" parent="VBox"]
+layout_mode = 2
+alignment = 2
+
+[node name="SkinsBtn" type="Button" parent="VBox/ThemesBar"]
+custom_minimum_size = Vector2(180, 32)
+layout_mode = 2
+text = "🐍 WORM SKINS"
+
+[node name="Scroll" type="ScrollContainer" parent="VBox"]
+layout_mode = 2
+size_flags_vertical = 3
+horizontal_scroll_mode = 0
+
+[node name="Grid" type="GridContainer" parent="VBox/Scroll"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/h_separation = 12
+theme_override_constants/v_separation = 12
+columns = 4

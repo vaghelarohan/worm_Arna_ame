@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96">
+    <defs>
+      <radialGradient id="mshSt" cx="48" cy="66" r="18" gradientUnits="userSpaceOnUse">
+        <stop offset="0%" stop-color="#ffffff"/>
+        <stop offset="100%" stop-color="#e6d4b8"/>
+      </radialGradient>
+      <radialGradient id="mshCap" cx="48" cy="40" r="38" fx="40" fy="30" gradientUnits="userSpaceOnUse">
+        <stop offset="0%" stop-color="#ff9a7a"/>
+        <stop offset="50%" stop-color="#ef3b2c"/>
+        <stop offset="100%" stop-color="#9a120c"/>
+      </radialGradient>
+    </defs>
+    <rect x="36" y="48" width="24" height="34" rx="10" fill="url(#mshSt)" stroke="#8a6a4a" stroke-width="3"/>
+    <path d="M12 54 C12 14, 84 14, 84 54 Q48 62 12 54 Z" fill="url(#mshCap)" stroke="#6b0a06" stroke-width="3"/>
+    <circle cx="34" cy="34" r="6" fill="#fff"/>
+    <circle cx="56" cy="28" r="7" fill="#fff"/>
+    <circle cx="70" cy="44" r="5" fill="#fff"/>
+    <circle cx="26" cy="48" r="4" fill="#fff"/>
+    <circle cx="48" cy="46" r="4" fill="#fff"/>
+  </svg>

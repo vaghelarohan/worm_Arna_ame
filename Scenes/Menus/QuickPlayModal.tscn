@@ -1,0 +1,276 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://Scripts/UI/QuickPlayModal.gd" id="1_qpsc"]
+[ext_resource type="FontFile" path="res://Assets/Fonts/Fredoka.ttf" id="2_fredoka"]
+[ext_resource type="StyleBox" path="res://Resources/btn_duration_normal.tres" id="3_dur_norm"]
+[ext_resource type="StyleBox" path="res://Resources/btn_duration_hover.tres" id="4_dur_hov"]
+[ext_resource type="FontFile" path="res://Assets/Fonts/LilitaOne-Regular.ttf" id="5_lilita"]
+[ext_resource type="Script" path="res://Scripts/UI/GameButton.gd" id="6_gmbtn"]
+[ext_resource type="StyleBox" path="res://Resources/btn_duration_pressed.tres" id="7_dur_prs"]
+[ext_resource type="StyleBox" path="res://Resources/btn_duration_selected.tres" id="8_dur_sel"]
+[ext_resource type="StyleBox" path="res://Resources/btn_duration_selected_hover.tres" id="9_dur_selhov"]
+[ext_resource type="StyleBox" path="res://Resources/btn_start_normal.tres" id="10_str_norm"]
+[ext_resource type="StyleBox" path="res://Resources/btn_start_hover.tres" id="11_str_hov"]
+[ext_resource type="StyleBox" path="res://Resources/btn_start_pressed.tres" id="12_str_prs"]
+
+[node name="QuickPlayModal" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_qpsc")
+
+[node name="VBox" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 22
+alignment = 1
+
+[node name="Prompt" type="Label" parent="VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.219608, 0.741176, 0.972549, 1)
+theme_override_colors/font_outline_color = Color(0.0431373, 0.0470588, 0.117647, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("5_lilita")
+theme_override_font_sizes/font_size = 22
+text = "CHOOSE MATCH LENGTH"
+horizontal_alignment = 1
+
+[node name="DurationRow" type="HBoxContainer" parent="VBox"]
+layout_mode = 2
+theme_override_constants/separation = 24
+alignment = 1
+
+[node name="Btn2" type="Button" parent="VBox/DurationRow"]
+custom_minimum_size = Vector2(190, 130)
+layout_mode = 2
+theme_override_styles/normal = ExtResource("3_dur_norm")
+theme_override_styles/hover = ExtResource("4_dur_hov")
+theme_override_styles/pressed = ExtResource("7_dur_prs")
+theme_override_styles/focus = ExtResource("3_dur_norm")
+script = ExtResource("6_gmbtn")
+hover_scale = 1.04
+pressed_scale = 0.95
+hover_duration = 0.16
+style_normal = ExtResource("3_dur_norm")
+style_hover = ExtResource("4_dur_hov")
+style_pressed = ExtResource("7_dur_prs")
+style_selected = ExtResource("8_dur_sel")
+style_selected_hover = ExtResource("9_dur_selhov")
+
+[node name="Col" type="VBoxContainer" parent="VBox/DurationRow/Btn2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/separation = 2
+alignment = 1
+
+[node name="Num" type="Label" parent="VBox/DurationRow/Btn2/Col"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0.0431373, 0.0470588, 0.117647, 1)
+theme_override_constants/outline_size = 6
+theme_override_fonts/font = ExtResource("5_lilita")
+theme_override_font_sizes/font_size = 48
+text = "2"
+horizontal_alignment = 1
+
+[node name="Unit" type="Label" parent="VBox/DurationRow/Btn2/Col"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_colors/font_color = Color(0.576471, 0.772549, 0.992157, 1)
+theme_override_colors/font_outline_color = Color(0.0431373, 0.0470588, 0.117647, 1)
+theme_override_constants/outline_size = 3
+theme_override_fonts/font = ExtResource("5_lilita")
+theme_override_font_sizes/font_size = 16
+text = "MINUTES"
+horizontal_alignment = 1
+
+[node name="Badge" type="Label" parent="VBox/DurationRow/Btn2/Col"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_colors/font_color = Color(0.219608, 0.741176, 0.972549, 1)
+theme_override_fonts/font = ExtResource("2_fredoka")
+theme_override_font_sizes/font_size = 13
+text = "⚡ FAST"
+horizontal_alignment = 1
+
+[node name="Btn5" type="Button" parent="VBox/DurationRow"]
+custom_minimum_size = Vector2(190, 130)
+layout_mode = 2
+theme_override_styles/normal = ExtResource("8_dur_sel")
+theme_override_styles/hover = ExtResource("9_dur_selhov")
+theme_override_styles/pressed = ExtResource("7_dur_prs")
+theme_override_styles/focus = ExtResource("8_dur_sel")
+script = ExtResource("6_gmbtn")
+hover_scale = 1.04
+pressed_scale = 0.95
+hover_duration = 0.16
+style_normal = ExtResource("3_dur_norm")
+style_hover = ExtResource("4_dur_hov")
+style_pressed = ExtResource("7_dur_prs")
+style_selected = ExtResource("8_dur_sel")
+style_selected_hover = ExtResource("9_dur_selhov")
+
+[node name="Col" type="VBoxContainer" parent="VBox/DurationRow/Btn5"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/separation = 2
+alignment = 1
+
+[node name="Num" type="Label" parent="VBox/DurationRow/Btn5/Col"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0.0431373, 0.0470588, 0.117647, 1)
+theme_override_constants/outline_size = 6
+theme_override_fonts/font = ExtResource("5_lilita")
+theme_override_font_sizes/font_size = 48
+text = "5"
+horizontal_alignment = 1
+
+[node name="Unit" type="Label" parent="VBox/DurationRow/Btn5/Col"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_colors/font_color = Color(0.996078, 0.941176, 0.541176, 1)
+theme_override_colors/font_outline_color = Color(0.0431373, 0.0470588, 0.117647, 1)
+theme_override_constants/outline_size = 3
+theme_override_fonts/font = ExtResource("5_lilita")
+theme_override_font_sizes/font_size = 16
+text = "MINUTES"
+horizontal_alignment = 1
+
+[node name="Badge" type="Label" parent="VBox/DurationRow/Btn5/Col"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_fredoka")
+theme_override_font_sizes/font_size = 13
+text = "⭐ POPULAR"
+horizontal_alignment = 1
+
+[node name="Btn10" type="Button" parent="VBox/DurationRow"]
+custom_minimum_size = Vector2(190, 130)
+layout_mode = 2
+theme_override_styles/normal = ExtResource("3_dur_norm")
+theme_override_styles/hover = ExtResource("4_dur_hov")
+theme_override_styles/pressed = ExtResource("7_dur_prs")
+theme_override_styles/focus = ExtResource("3_dur_norm")
+script = ExtResource("6_gmbtn")
+hover_scale = 1.04
+pressed_scale = 0.95
+hover_duration = 0.16
+style_normal = ExtResource("3_dur_norm")
+style_hover = ExtResource("4_dur_hov")
+style_pressed = ExtResource("7_dur_prs")
+style_selected = ExtResource("8_dur_sel")
+style_selected_hover = ExtResource("9_dur_selhov")
+
+[node name="Col" type="VBoxContainer" parent="VBox/DurationRow/Btn10"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/separation = 2
+alignment = 1
+
+[node name="Num" type="Label" parent="VBox/DurationRow/Btn10/Col"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0.0431373, 0.0470588, 0.117647, 1)
+theme_override_constants/outline_size = 6
+theme_override_fonts/font = ExtResource("5_lilita")
+theme_override_font_sizes/font_size = 48
+text = "10"
+horizontal_alignment = 1
+
+[node name="Unit" type="Label" parent="VBox/DurationRow/Btn10/Col"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_colors/font_color = Color(0.576471, 0.772549, 0.992157, 1)
+theme_override_colors/font_outline_color = Color(0.0431373, 0.0470588, 0.117647, 1)
+theme_override_constants/outline_size = 3
+theme_override_fonts/font = ExtResource("5_lilita")
+theme_override_font_sizes/font_size = 16
+text = "MINUTES"
+horizontal_alignment = 1
+
+[node name="Badge" type="Label" parent="VBox/DurationRow/Btn10/Col"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_colors/font_color = Color(0.219608, 0.741176, 0.972549, 1)
+theme_override_fonts/font = ExtResource("2_fredoka")
+theme_override_font_sizes/font_size = 13
+text = "🏆 MARATHON"
+horizontal_alignment = 1
+
+[node name="StartBtn" type="Button" parent="VBox"]
+custom_minimum_size = Vector2(360, 74)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0.0431373, 0.0470588, 0.117647, 1)
+theme_override_constants/outline_size = 6
+theme_override_fonts/font = ExtResource("5_lilita")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = ExtResource("10_str_norm")
+theme_override_styles/hover = ExtResource("11_str_hov")
+theme_override_styles/pressed = ExtResource("12_str_prs")
+theme_override_styles/focus = ExtResource("10_str_norm")
+text = "▶  START MATCH"
+script = ExtResource("6_gmbtn")
+hover_scale = 1.04
+pressed_scale = 0.95
+hover_duration = 0.16
+style_normal = ExtResource("10_str_norm")
+style_hover = ExtResource("11_str_hov")
+style_pressed = ExtResource("12_str_prs")
+
+[node name="FindingBox" type="VBoxContainer" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="FindingText" type="Label" parent="FindingBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.29, 0.87, 0.50, 1)
+theme_override_colors/font_outline_color = Color(0.0431373, 0.0470588, 0.117647, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("5_lilita")
+theme_override_font_sizes/font_size = 52
+text = "FINDING MATCH…"
+horizontal_alignment = 1
+
+[node name="SubText" type="Label" parent="FindingBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.576471, 0.772549, 0.992157, 1)
+theme_override_fonts/font = ExtResource("2_fredoka")
+theme_override_font_sizes/font_size = 22
+text = "5-minute arena · connecting to players"
+horizontal_alignment = 1

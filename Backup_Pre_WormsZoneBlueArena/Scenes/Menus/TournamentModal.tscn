@@ -1,0 +1,142 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://Scripts/UI/TournamentModal.gd" id="1_tnsc"]
+[ext_resource type="StyleBox" path="res://Resources/tile_style.tres" id="2_tile"]
+[ext_resource type="FontFile" path="res://Assets/Fonts/Fredoka.ttf" id="3_fredoka"]
+[ext_resource type="FontFile" path="res://Assets/Fonts/LilitaOne-Regular.ttf" id="4_lilita"]
+[ext_resource type="StyleBox" path="res://Resources/btn_green.tres" id="5_btngr"]
+[ext_resource type="Script" path="res://Scripts/UI/GameButton.gd" id="6_gmbtn"]
+
+[node name="TournamentModal" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_tnsc")
+
+[node name="VBox" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 40
+alignment = 1
+
+[node name="TilesRow" type="HBoxContainer" parent="VBox"]
+layout_mode = 2
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="TileSeason" type="Panel" parent="VBox/TilesRow"]
+custom_minimum_size = Vector2(250, 140)
+layout_mode = 2
+theme_override_styles/panel = ExtResource("2_tile")
+
+[node name="Col" type="VBoxContainer" parent="VBox/TilesRow/TileSeason"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="VBox/TilesRow/TileSeason/Col"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.701961, 0.721569, 0.85098, 1)
+theme_override_fonts/font = ExtResource("3_fredoka")
+theme_override_font_sizes/font_size = 18
+text = "Season"
+horizontal_alignment = 1
+
+[node name="Val" type="Label" parent="VBox/TilesRow/TileSeason/Col"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.984314, 0.74902, 0.141176, 1)
+theme_override_colors/font_outline_color = Color(0.0431373, 0.0470588, 0.117647, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("4_lilita")
+theme_override_font_sizes/font_size = 26
+text = "S1 · Neon Rising"
+horizontal_alignment = 1
+
+[node name="TileEnds" type="Panel" parent="VBox/TilesRow"]
+custom_minimum_size = Vector2(250, 140)
+layout_mode = 2
+theme_override_styles/panel = ExtResource("2_tile")
+
+[node name="Col" type="VBoxContainer" parent="VBox/TilesRow/TileEnds"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="VBox/TilesRow/TileEnds/Col"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.701961, 0.721569, 0.85098, 1)
+theme_override_fonts/font = ExtResource("3_fredoka")
+theme_override_font_sizes/font_size = 18
+text = "Ends in"
+horizontal_alignment = 1
+
+[node name="Val" type="Label" parent="VBox/TilesRow/TileEnds/Col"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.984314, 0.74902, 0.141176, 1)
+theme_override_colors/font_outline_color = Color(0.0431373, 0.0470588, 0.117647, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("4_lilita")
+theme_override_font_sizes/font_size = 26
+text = "6d 14h"
+horizontal_alignment = 1
+
+[node name="TilePrize" type="Panel" parent="VBox/TilesRow"]
+custom_minimum_size = Vector2(250, 140)
+layout_mode = 2
+theme_override_styles/panel = ExtResource("2_tile")
+
+[node name="Col" type="VBoxContainer" parent="VBox/TilesRow/TilePrize"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="VBox/TilesRow/TilePrize/Col"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.701961, 0.721569, 0.85098, 1)
+theme_override_fonts/font = ExtResource("3_fredoka")
+theme_override_font_sizes/font_size = 18
+text = "Prize Pool"
+horizontal_alignment = 1
+
+[node name="Val" type="Label" parent="VBox/TilesRow/TilePrize/Col"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.984314, 0.74902, 0.141176, 1)
+theme_override_colors/font_outline_color = Color(0.0431373, 0.0470588, 0.117647, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("4_lilita")
+theme_override_font_sizes/font_size = 26
+text = "50,000 Gems"
+horizontal_alignment = 1
+
+[node name="JoinBtn" type="Button" parent="VBox"]
+custom_minimum_size = Vector2(340, 70)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_outline_color = Color(0.0431373, 0.0470588, 0.117647, 1)
+theme_override_constants/outline_size = 6
+theme_override_fonts/font = ExtResource("4_lilita")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = ExtResource("5_btngr")
+theme_override_styles/hover = ExtResource("5_btngr")
+theme_override_styles/pressed = ExtResource("5_btngr")
+text = "JOIN RANKED MATCH"
+script = ExtResource("6_gmbtn")

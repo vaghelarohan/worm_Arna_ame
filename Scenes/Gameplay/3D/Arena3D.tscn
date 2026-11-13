@@ -1,0 +1,55 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://Scripts/Gameplay/Arena3D.gd" id="1_arn3d"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_sky"]
+sky_top_color = Color(0.08, 0.16, 0.36, 1)
+sky_horizon_color = Color(0.14, 0.28, 0.54, 1)
+ground_bottom_color = Color(0.04, 0.08, 0.20, 1)
+ground_horizon_color = Color(0.09, 0.18, 0.38, 1)
+
+[sub_resource type="Sky" id="Sky_env"]
+sky_material = SubResource("ProceduralSkyMaterial_sky")
+
+[sub_resource type="Environment" id="Environment_1"]
+background_mode = 2
+sky = SubResource("Sky_env")
+ambient_light_source = 3
+ambient_light_color = Color(0.42, 0.58, 0.85, 1)
+ambient_light_energy = 0.95
+glow_enabled = true
+glow_intensity = 0.35
+glow_bloom = 0.12
+tonemap_mode = 2
+tonemap_exposure = 1.15
+
+[node name="Arena3D" type="Node3D"]
+script = ExtResource("1_arn3d")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_1")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.819152, -0.496732, 0.286788, 0, 0.5, 0.866025, -0.573576, -0.709406, 0.409576, 0, 40, 0)
+light_color = Color(1, 0.985, 0.95, 1)
+light_energy = 1.45
+shadow_enabled = true
+shadow_bias = 0.04
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.422618, 0.906308, 0, -0.906308, 0.422618, 90, 36, 108)
+current = true
+fov = 48.0
+
+[node name="Ground" type="MeshInstance3D" parent="."]
+
+[node name="DecorContainer" type="Node3D" parent="."]
+
+[node name="FoodContainer" type="Node3D" parent="."]
+
+[node name="WormsContainer" type="Node3D" parent="."]
+
+[node name="PopupsContainer" type="Node3D" parent="."]
+
+[node name="ParticlesContainer" type="Node3D" parent="."]
+

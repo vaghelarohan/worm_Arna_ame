@@ -1,0 +1,363 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://Scripts/UI/ProfileCard.gd" id="1_pcsc"]
+[ext_resource type="StyleBox" path="res://Resources/panel_style.tres" id="2_pnst"]
+[ext_resource type="FontFile" path="res://Assets/Fonts/LilitaOne-Regular.ttf" id="3_font_lilita"]
+[ext_resource type="FontFile" path="res://Assets/Fonts/Fredoka.ttf" id="4_font_fredoka"]
+[ext_resource type="Texture2D" path="res://Assets/Characters/Avatars/avatar_hero.png" id="5_whero"]
+[ext_resource type="Texture2D" path="res://Assets/Icons/crown.svg" id="6_crown"]
+[ext_resource type="Texture2D" path="res://Assets/Icons/pencil.svg" id="7_pencil"]
+[ext_resource type="Texture2D" path="res://Assets/Icons/plus.svg" id="8_plus"]
+[ext_resource type="Texture2D" path="res://Assets/Icons/coin.svg" id="9_coin"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_avatar_glow"]
+bg_color = Color(0, 0, 0, 0)
+corner_radius_top_left = 75
+corner_radius_top_right = 75
+corner_radius_bottom_right = 75
+corner_radius_bottom_left = 75
+shadow_color = Color(0, 0.85, 1, 0.35)
+shadow_size = 14
+shadow_offset = Vector2(0, 3)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_avatar_outer"]
+bg_color = Color(0.04, 0.08, 0.22, 0.98)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.12, 0.88, 0.96, 1)
+corner_radius_top_left = 72
+corner_radius_top_right = 72
+corner_radius_bottom_right = 72
+corner_radius_bottom_left = 72
+shadow_color = Color(0.02, 0.04, 0.1, 0.65)
+shadow_size = 8
+shadow_offset = Vector2(0, 3)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_avatar_inner"]
+bg_color = Color(0.06, 0.12, 0.3, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.1, 0.5, 0.85, 0.55)
+corner_radius_top_left = 68
+corner_radius_top_right = 68
+corner_radius_bottom_right = 68
+corner_radius_bottom_left = 68
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lvl"]
+bg_color = Color(0.960784, 0.619608, 0.0431373, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.85098, 0.466667, 0.0235294, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xp_bg"]
+bg_color = Color(0.0784314, 0.0901961, 0.219608, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.219608, 0.741176, 0.972549, 0.5)
+corner_radius_top_left = 14
+corner_radius_top_right = 14
+corner_radius_bottom_right = 14
+corner_radius_bottom_left = 14
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xp_fill"]
+bg_color = Color(0.960784, 0.619608, 0.0431373, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_coin_bar"]
+bg_color = Color(0.0784314, 0.0901961, 0.219608, 0.7)
+corner_radius_top_left = 18
+corner_radius_top_right = 18
+corner_radius_bottom_right = 18
+corner_radius_bottom_left = 18
+
+[node name="ProfileCard" type="Control"]
+custom_minimum_size = Vector2(490, 160)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 490.0
+offset_bottom = 160.0
+script = ExtResource("1_pcsc")
+
+[node name="CardButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+flat = true
+
+[node name="Panel" type="Panel" parent="CardButton"]
+layout_mode = 0
+offset_left = 70.0
+offset_top = 2.0
+offset_right = 490.0
+offset_bottom = 158.0
+theme_override_styles/panel = ExtResource("2_pnst")
+
+[node name="TopRow" type="HBoxContainer" parent="CardButton/Panel"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 80.0
+offset_top = 10.0
+offset_right = -16.0
+offset_bottom = 44.0
+grow_horizontal = 2
+
+[node name="Username" type="Label" parent="CardButton/Panel/TopRow"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_outline_color = Color(0.0431373, 0.0470588, 0.117647, 1)
+theme_override_constants/outline_size = 6
+theme_override_fonts/font = ExtResource("3_font_lilita")
+theme_override_font_sizes/font_size = 30
+text = "Finalboss"
+vertical_alignment = 1
+
+[node name="PencilBtn" type="Button" parent="CardButton/Panel/TopRow"]
+custom_minimum_size = Vector2(42, 42)
+layout_mode = 2
+flat = true
+
+[node name="Icon" type="TextureRect" parent="CardButton/Panel/TopRow/PencilBtn"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 3.0
+offset_top = 3.0
+offset_right = -3.0
+offset_bottom = -3.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("7_pencil")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="InfoRow" type="HBoxContainer" parent="CardButton/Panel"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 80.0
+offset_top = 44.0
+offset_right = -16.0
+offset_bottom = 70.0
+grow_horizontal = 2
+
+[node name="Rank" type="Label" parent="CardButton/Panel/InfoRow"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.133333, 0.827451, 0.933333, 1)
+theme_override_fonts/font = ExtResource("4_font_fredoka")
+theme_override_font_sizes/font_size = 19
+text = "Rank: Beginner"
+vertical_alignment = 1
+
+[node name="Id" type="Label" parent="CardButton/Panel/InfoRow"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.984314, 0.74902, 0.141176, 1)
+theme_override_fonts/font = ExtResource("4_font_fredoka")
+theme_override_font_sizes/font_size = 19
+text = "#W-2707"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="XpBar" type="ProgressBar" parent="CardButton/Panel"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 80.0
+offset_top = 74.0
+offset_right = -16.0
+offset_bottom = 104.0
+grow_horizontal = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_xp_bg")
+theme_override_styles/fill = SubResource("StyleBoxFlat_xp_fill")
+max_value = 1100.0
+value = 844.0
+show_percentage = false
+
+[node name="XpText" type="Label" parent="CardButton/Panel/XpBar"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_outline_color = Color(0.0431373, 0.0470588, 0.117647, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("3_font_lilita")
+theme_override_font_sizes/font_size = 18
+text = "844 / 1,100 XP"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CoinsRow" type="Panel" parent="CardButton/Panel"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 80.0
+offset_top = -48.0
+offset_right = -16.0
+offset_bottom = -8.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_coin_bar")
+
+[node name="CoinIcon" type="TextureRect" parent="CardButton/Panel/CoinsRow"]
+custom_minimum_size = Vector2(34, 34)
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 6.0
+offset_top = -17.0
+offset_right = 40.0
+offset_bottom = 17.0
+grow_vertical = 2
+texture = ExtResource("9_coin")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="CoinsValue" type="Label" parent="CardButton/Panel/CoinsRow"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 46.0
+offset_top = -15.0
+offset_right = 186.0
+offset_bottom = 15.0
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.984314, 0.74902, 0.141176, 1)
+theme_override_fonts/font = ExtResource("3_font_lilita")
+theme_override_font_sizes/font_size = 26
+text = "105"
+vertical_alignment = 1
+
+[node name="Avatar" type="Control" parent="CardButton"]
+layout_mode = 0
+offset_top = 5.0
+offset_right = 150.0
+offset_bottom = 155.0
+
+[node name="GlowShadow" type="Panel" parent="CardButton/Avatar"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_avatar_glow")
+
+[node name="OuterRing" type="Panel" parent="CardButton/Avatar"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -72.0
+offset_top = -72.0
+offset_right = 72.0
+offset_bottom = 72.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_avatar_outer")
+
+[node name="CircleFrame" type="Panel" parent="CardButton/Avatar"]
+clip_contents = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -68.0
+offset_top = -68.0
+offset_right = 68.0
+offset_bottom = 68.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_avatar_inner")
+
+[node name="AvatarImg" type="TextureRect" parent="CardButton/Avatar/CircleFrame"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -58.0
+offset_top = -58.0
+offset_right = 58.0
+offset_bottom = 58.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_whero")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="CrownIcon" type="TextureRect" parent="CardButton/Avatar"]
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 0
+offset_left = 12.0
+offset_top = -20.0
+offset_right = 60.0
+offset_bottom = 28.0
+rotation = -0.20944
+texture = ExtResource("6_crown")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="LevelBadge" type="Panel" parent="CardButton/Avatar"]
+custom_minimum_size = Vector2(48, 42)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -24.0
+offset_top = -20.0
+offset_right = 24.0
+offset_bottom = 22.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_lvl")
+
+[node name="LevelNumber" type="Label" parent="CardButton/Avatar/LevelBadge"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.0431373, 0.0470588, 0.117647, 1)
+theme_override_fonts/font = ExtResource("3_font_lilita")
+theme_override_font_sizes/font_size = 26
+text = "3"
+horizontal_alignment = 1
+vertical_alignment = 1

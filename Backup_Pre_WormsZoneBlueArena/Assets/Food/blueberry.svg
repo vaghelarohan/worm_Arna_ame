@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96">
+    <defs>
+      <radialGradient id="bluG" cx="48" cy="50" r="30" fx="40" fy="40" gradientUnits="userSpaceOnUse">
+        <stop offset="0%" stop-color="#9ab4ff"/>
+        <stop offset="50%" stop-color="#3c4fd6"/>
+        <stop offset="100%" stop-color="#1a1f6e"/>
+      </radialGradient>
+    </defs>
+    <circle cx="48" cy="50" r="28" fill="url(#bluG)" stroke="#121650" stroke-width="3"/>
+    <polygon points="48 30 52 35 55 33 53 38 50 40 46 40 43 38 41 33 44 35" fill="#1a1f6e"/>
+    <ellipse cx="36" cy="40" rx="6" ry="9" transform="rotate(-35 36 40)" fill="rgba(255,255,255,0.7)"/>
+  </svg>

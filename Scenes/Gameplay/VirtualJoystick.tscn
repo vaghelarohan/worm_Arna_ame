@@ -1,0 +1,202 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://Scripts/UI/VirtualJoystick.gd" id="1_vjsc"]
+[ext_resource type="Texture2D" path="res://Assets/Icons/chevron_up.svg" id="2_chup"]
+[ext_resource type="Texture2D" path="res://Assets/Icons/chevron_down.svg" id="3_chdn"]
+[ext_resource type="Texture2D" path="res://Assets/Icons/chevron_left.svg" id="4_chlt"]
+[ext_resource type="Texture2D" path="res://Assets/Icons/chevron_right.svg" id="5_chrt"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_js_base"]
+bg_color = Color(0.0352941, 0.0745098, 0.2, 0.55)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0, 0.901961, 1, 0.9)
+corner_radius_top_left = 140
+corner_radius_top_right = 140
+corner_radius_bottom_right = 140
+corner_radius_bottom_left = 140
+shadow_color = Color(0, 0.85, 1, 0.45)
+shadow_size = 22
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_reticle"]
+bg_color = Color(0, 0, 0, 0)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 0.85098, 1, 0.22)
+corner_radius_top_left = 90
+corner_radius_top_right = 90
+corner_radius_bottom_right = 90
+corner_radius_bottom_left = 90
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_knob"]
+bg_color = Color(0.0705882, 0.180392, 0.447059, 0.95)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0, 0.95, 1, 1)
+corner_radius_top_left = 60
+corner_radius_top_right = 60
+corner_radius_bottom_right = 60
+corner_radius_bottom_left = 60
+shadow_color = Color(0, 0.85, 1, 0.65)
+shadow_size = 18
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pip"]
+bg_color = Color(0, 0.92, 1, 0.85)
+corner_radius_top_left = 14
+corner_radius_top_right = 14
+corner_radius_bottom_right = 14
+corner_radius_bottom_left = 14
+shadow_color = Color(0, 0.9, 1, 0.8)
+shadow_size = 8
+
+[node name="VirtualJoystick" type="Control"]
+visible = false
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(280, 280)
+offset_right = 280.0
+offset_bottom = 280.0
+pivot_offset = Vector2(140, 140)
+mouse_filter = 2
+script = ExtResource("1_vjsc")
+
+[node name="Base" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_js_base")
+
+[node name="ReticleRing" type="Panel" parent="Base"]
+custom_minimum_size = Vector2(180, 180)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -90.0
+offset_top = -90.0
+offset_right = 90.0
+offset_bottom = 90.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_reticle")
+
+[node name="Up" type="TextureRect" parent="Base"]
+modulate = Color(0.15, 0.9, 1, 0.6)
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -16.0
+offset_top = 10.0
+offset_right = 16.0
+offset_bottom = 42.0
+grow_horizontal = 2
+mouse_filter = 2
+texture = ExtResource("2_chup")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Down" type="TextureRect" parent="Base"]
+modulate = Color(0.15, 0.9, 1, 0.6)
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -16.0
+offset_top = -42.0
+offset_right = 16.0
+offset_bottom = -10.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 2
+texture = ExtResource("3_chdn")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Left" type="TextureRect" parent="Base"]
+modulate = Color(0.15, 0.9, 1, 0.6)
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 10.0
+offset_top = -16.0
+offset_right = 42.0
+offset_bottom = 16.0
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("4_chlt")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Right" type="TextureRect" parent="Base"]
+modulate = Color(0.15, 0.9, 1, 0.6)
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -42.0
+offset_top = -16.0
+offset_right = -10.0
+offset_bottom = 16.0
+grow_horizontal = 0
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("5_chrt")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Knob" type="Panel" parent="."]
+custom_minimum_size = Vector2(120, 120)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -60.0
+offset_top = -60.0
+offset_right = 60.0
+offset_bottom = 60.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(60, 60)
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_knob")
+
+[node name="Pip" type="Panel" parent="Knob"]
+custom_minimum_size = Vector2(28, 28)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -14.0
+offset_top = -14.0
+offset_right = 14.0
+offset_bottom = 14.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_pip")

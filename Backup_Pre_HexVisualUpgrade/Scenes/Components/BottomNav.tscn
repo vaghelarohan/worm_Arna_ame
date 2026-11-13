@@ -1,0 +1,260 @@
+[gd_scene format=3]
+
+[ext_resource type="StyleBox" path="res://Resources/panel_style.tres" id="1_pnst"]
+[ext_resource type="Script" path="res://Scripts/UI/BottomNav.gd" id="2_bnsc"]
+[ext_resource type="StyleBox" path="res://Resources/btn_green.tres" id="3_btngr"]
+[ext_resource type="Script" path="res://Scripts/UI/GameButton.gd" id="4_gmbtn"]
+[ext_resource type="Texture2D" path="res://Assets/Icons/play.svg" id="5_play"]
+[ext_resource type="FontFile" path="res://Assets/Fonts/LilitaOne-Regular.ttf" id="6_font_lilita"]
+[ext_resource type="StyleBox" path="res://Resources/btn_blue.tres" id="7_btnbl"]
+[ext_resource type="Texture2D" path="res://Assets/Icons/gamepad_2.svg" id="8_gmpd"]
+[ext_resource type="StyleBox" path="res://Resources/btn_purple.tres" id="9_btnpr"]
+[ext_resource type="Texture2D" path="res://Assets/Icons/drama.svg" id="10_drma"]
+[ext_resource type="Texture2D" path="res://Assets/Icons/zap.svg" id="11_zap"]
+[ext_resource type="StyleBox" path="res://Resources/btn_bronze.tres" id="12_btnbr"]
+[ext_resource type="Texture2D" path="res://Assets/Icons/crown.svg" id="13_crown"]
+[ext_resource type="StyleBox" path="res://Resources/btn_navy.tres" id="14_btnnv"]
+[ext_resource type="Texture2D" path="res://Assets/Icons/settings.svg" id="15_sett"]
+
+[node name="BottomNav" type="Panel"]
+custom_minimum_size = Vector2(1300, 116)
+offset_right = 1300.0
+offset_bottom = 116.0
+theme_override_styles/panel = ExtResource("1_pnst")
+script = ExtResource("2_bnsc")
+
+[node name="Grid" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 12.0
+offset_top = 10.0
+offset_right = -12.0
+offset_bottom = -10.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 16
+alignment = 1
+
+[node name="PlayBtn" type="Button" parent="Grid"]
+custom_minimum_size = Vector2(230, 96)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/normal = ExtResource("3_btngr")
+theme_override_styles/hover = ExtResource("3_btngr")
+theme_override_styles/pressed = ExtResource("3_btngr")
+script = ExtResource("4_gmbtn")
+
+[node name="HBox" type="HBoxContainer" parent="Grid/PlayBtn"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 12
+alignment = 1
+
+[node name="Icon" type="TextureRect" parent="Grid/PlayBtn/HBox"]
+custom_minimum_size = Vector2(46, 46)
+layout_mode = 2
+size_flags_vertical = 4
+mouse_filter = 2
+texture = ExtResource("5_play")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="Grid/PlayBtn/HBox"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0.0431373, 0.0470588, 0.117647, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("6_font_lilita")
+theme_override_font_sizes/font_size = 46
+text = "PLAY"
+vertical_alignment = 1
+
+[node name="ModesBtn" type="Button" parent="Grid"]
+custom_minimum_size = Vector2(190, 96)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/normal = ExtResource("7_btnbl")
+theme_override_styles/hover = ExtResource("7_btnbl")
+theme_override_styles/pressed = ExtResource("7_btnbl")
+script = ExtResource("4_gmbtn")
+
+[node name="VBox" type="VBoxContainer" parent="Grid/ModesBtn"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 2
+alignment = 1
+
+[node name="Icon" type="TextureRect" parent="Grid/ModesBtn/VBox"]
+custom_minimum_size = Vector2(38, 38)
+layout_mode = 2
+size_flags_horizontal = 4
+mouse_filter = 2
+texture = ExtResource("8_gmpd")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="Grid/ModesBtn/VBox"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0.0431373, 0.0470588, 0.117647, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("6_font_lilita")
+theme_override_font_sizes/font_size = 20
+text = "MODES"
+horizontal_alignment = 1
+
+[node name="SkinsBtn" type="Button" parent="Grid"]
+custom_minimum_size = Vector2(190, 96)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/normal = ExtResource("9_btnpr")
+theme_override_styles/hover = ExtResource("9_btnpr")
+theme_override_styles/pressed = ExtResource("9_btnpr")
+script = ExtResource("4_gmbtn")
+
+[node name="VBox" type="VBoxContainer" parent="Grid/SkinsBtn"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 2
+alignment = 1
+
+[node name="Icon" type="TextureRect" parent="Grid/SkinsBtn/VBox"]
+custom_minimum_size = Vector2(38, 38)
+layout_mode = 2
+size_flags_horizontal = 4
+mouse_filter = 2
+texture = ExtResource("10_drma")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="Grid/SkinsBtn/VBox"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0.0431373, 0.0470588, 0.117647, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("6_font_lilita")
+theme_override_font_sizes/font_size = 20
+text = "SKINS"
+horizontal_alignment = 1
+
+[node name="BoostersBtn" type="Button" parent="Grid"]
+custom_minimum_size = Vector2(190, 96)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/normal = ExtResource("7_btnbl")
+theme_override_styles/hover = ExtResource("7_btnbl")
+theme_override_styles/pressed = ExtResource("7_btnbl")
+script = ExtResource("4_gmbtn")
+
+[node name="VBox" type="VBoxContainer" parent="Grid/BoostersBtn"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 2
+alignment = 1
+
+[node name="Icon" type="TextureRect" parent="Grid/BoostersBtn/VBox"]
+custom_minimum_size = Vector2(38, 38)
+layout_mode = 2
+size_flags_horizontal = 4
+mouse_filter = 2
+texture = ExtResource("11_zap")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="Grid/BoostersBtn/VBox"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0.0431373, 0.0470588, 0.117647, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("6_font_lilita")
+theme_override_font_sizes/font_size = 20
+text = "BOOSTERS"
+horizontal_alignment = 1
+
+[node name="RanksBtn" type="Button" parent="Grid"]
+custom_minimum_size = Vector2(190, 96)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/normal = ExtResource("12_btnbr")
+theme_override_styles/hover = ExtResource("12_btnbr")
+theme_override_styles/pressed = ExtResource("12_btnbr")
+script = ExtResource("4_gmbtn")
+
+[node name="VBox" type="VBoxContainer" parent="Grid/RanksBtn"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 2
+alignment = 1
+
+[node name="Icon" type="TextureRect" parent="Grid/RanksBtn/VBox"]
+custom_minimum_size = Vector2(38, 38)
+layout_mode = 2
+size_flags_horizontal = 4
+mouse_filter = 2
+texture = ExtResource("13_crown")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="Grid/RanksBtn/VBox"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0.0431373, 0.0470588, 0.117647, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("6_font_lilita")
+theme_override_font_sizes/font_size = 20
+text = "RANKS"
+horizontal_alignment = 1
+
+[node name="SettingsBtn" type="Button" parent="Grid"]
+custom_minimum_size = Vector2(190, 96)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/normal = ExtResource("14_btnnv")
+theme_override_styles/hover = ExtResource("14_btnnv")
+theme_override_styles/pressed = ExtResource("14_btnnv")
+script = ExtResource("4_gmbtn")
+
+[node name="VBox" type="VBoxContainer" parent="Grid/SettingsBtn"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 2
+alignment = 1
+
+[node name="Icon" type="TextureRect" parent="Grid/SettingsBtn/VBox"]
+custom_minimum_size = Vector2(38, 38)
+layout_mode = 2
+size_flags_horizontal = 4
+mouse_filter = 2
+texture = ExtResource("15_sett")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="Grid/SettingsBtn/VBox"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0.0431373, 0.0470588, 0.117647, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("6_font_lilita")
+theme_override_font_sizes/font_size = 20
+text = "SETTINGS"
+horizontal_alignment = 1

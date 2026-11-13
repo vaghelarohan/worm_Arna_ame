@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96">
+    <defs>
+      <radialGradient id="orG" cx="48" cy="50" r="34" fx="40" fy="40" gradientUnits="userSpaceOnUse">
+        <stop offset="0%" stop-color="#ffd08a"/>
+        <stop offset="50%" stop-color="#ff8a1a"/>
+        <stop offset="100%" stop-color="#b64a00"/>
+      </radialGradient>
+    </defs>
+    <path d="M16 52 A32 32 0 0 1 80 52 Z" fill="url(#orG)" stroke="#7a3200" stroke-width="3"/>
+    <path d="M23 52 A25 25 0 0 1 73 52 Z" fill="#fff1c8"/>
+    <g fill="#ffa62e">
+      <path d="M48 50 L27 50 A22 22 0 0 1 31 37 Z"/>
+      <path d="M48 50 L33 35 A22 22 0 0 1 43 29 Z"/>
+      <path d="M48 50 L45 28 A22 22 0 0 1 55 29 Z"/>
+      <path d="M48 50 L57 31 A22 22 0 0 1 65 37 Z"/>
+      <path d="M48 50 L67 39 A22 22 0 0 1 69 50 Z"/>
+    </g>
+    <ellipse cx="34" cy="36" rx="4" ry="6" transform="rotate(-30 34 36)" fill="rgba(255,255,255,0.7)"/>
+  </svg>

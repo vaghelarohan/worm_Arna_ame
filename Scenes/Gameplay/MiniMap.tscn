@@ -1,0 +1,38 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://Scripts/UI/MiniMap.gd" id="1_mmsc"]
+[ext_resource type="Script" path="res://Scripts/UI/MiniMapRadar.gd" id="2_rdrsc"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_minimap"]
+bg_color = Color(0.0431373, 0.054902, 0.145098, 0.92)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0.901961, 1, 0.95)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+shadow_color = Color(0, 0.8, 1, 0.5)
+shadow_size = 18
+
+[node name="MiniMap" type="Panel"]
+custom_minimum_size = Vector2(190, 190)
+offset_right = 190.0
+offset_bottom = 190.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_minimap")
+script = ExtResource("1_mmsc")
+
+[node name="Radar" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 6.0
+offset_top = 6.0
+offset_right = -6.0
+offset_bottom = -6.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_rdrsc")

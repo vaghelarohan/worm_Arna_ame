@@ -1,0 +1,89 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://Scripts/UI/PlayScreen.gd" id="1_plsc"]
+[ext_resource type="Script" path="res://Scripts/Gameplay/GameArenaRenderer.gd" id="2_arnsc"]
+[ext_resource type="PackedScene" path="res://Scenes/Gameplay/Hud.tscn" id="3_hudsc"]
+[ext_resource type="PackedScene" path="res://Scenes/Gameplay/MiniMap.tscn" id="4_mmpsc"]
+[ext_resource type="PackedScene" path="res://Scenes/Gameplay/VirtualJoystick.tscn" id="5_vjsc"]
+[ext_resource type="PackedScene" path="res://Scenes/Gameplay/PowerUpBar.tscn" id="6_pwsc"]
+[ext_resource type="PackedScene" path="res://Scenes/Gameplay/BoostButton.tscn" id="7_btsc"]
+
+[node name="PlayScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_plsc")
+
+[node name="ContentStage" type="Control" parent="."]
+custom_minimum_size = Vector2(1600, 900)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -800.0
+offset_top = -450.0
+offset_right = 800.0
+offset_bottom = 450.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Arena" type="Control" parent="ContentStage"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_arnsc")
+
+[node name="Hud" parent="ContentStage" instance=ExtResource("3_hudsc")]
+layout_mode = 1
+
+[node name="MiniMap" parent="ContentStage" instance=ExtResource("4_mmpsc")]
+layout_mode = 0
+offset_left = 1386.0
+offset_top = 120.0
+offset_right = 1576.0
+offset_bottom = 310.0
+
+[node name="VirtualJoystick" parent="ContentStage" instance=ExtResource("5_vjsc")]
+layout_mode = 0
+offset_left = 56.0
+offset_top = 600.0
+offset_right = 316.0
+offset_bottom = 860.0
+
+[node name="PowerUpBar" parent="ContentStage" instance=ExtResource("6_pwsc")]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -290.0
+offset_top = -116.0
+offset_right = 290.0
+offset_bottom = -16.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="BoostButton" parent="ContentStage" instance=ExtResource("7_btsc")]
+layout_mode = 0
+offset_left = 1354.0
+offset_top = 662.0
+offset_right = 1544.0
+offset_bottom = 852.0
+
+[node name="OverlayLayer" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2

@@ -1,0 +1,147 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://Scripts/UI/HeroWorm.gd" id="1_hwsc"]
+[ext_resource type="Texture2D" path="res://Assets/Characters/worm-hero.png" id="2_wimg"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_outer"]
+bg_color = Color(0.133333, 0.160784, 0.352941, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.658824, 0.333333, 0.968627, 0.8)
+corner_radius_top_left = 310
+corner_radius_top_right = 310
+corner_radius_bottom_right = 310
+corner_radius_bottom_left = 310
+shadow_color = Color(0.658824, 0.333333, 0.968627, 0.5)
+shadow_size = 30
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_inner"]
+bg_color = Color(0.0784314, 0.0901961, 0.219608, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.133333, 0.827451, 0.933333, 1)
+corner_radius_top_left = 250
+corner_radius_top_right = 250
+corner_radius_bottom_right = 250
+corner_radius_bottom_left = 250
+shadow_color = Color(0.133333, 0.827451, 0.933333, 0.6)
+shadow_size = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ring"]
+bg_color = Color(0, 0, 0, 0)
+draw_center = false
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.133333, 0.827451, 0.933333, 0.6)
+corner_radius_top_left = 280
+corner_radius_top_right = 280
+corner_radius_bottom_right = 280
+corner_radius_bottom_left = 280
+
+[node name="HeroWorm" type="Control"]
+custom_minimum_size = Vector2(640, 440)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 640.0
+offset_bottom = 440.0
+mouse_filter = 2
+script = ExtResource("1_hwsc")
+
+[node name="AmbientGlow" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 170.0
+offset_top = 90.0
+offset_right = 470.0
+offset_bottom = 390.0
+mouse_filter = 2
+color = Color(0.133333, 0.827451, 0.933333, 0.12)
+
+[node name="Podium" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -180.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 2
+
+[node name="OuterEllipse" type="Panel" parent="Podium"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_top = -150.0
+offset_right = -10.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_outer")
+
+[node name="InnerEllipse" type="Panel" parent="Podium"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 70.0
+offset_top = -120.0
+offset_right = -70.0
+offset_bottom = -20.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_inner")
+
+[node name="DashedRing" type="Panel" parent="Podium"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 40.0
+offset_top = -140.0
+offset_right = -40.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 0
+pivot_offset = Vector2(280, 80)
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_ring")
+
+[node name="Shadow" type="ColorRect" parent="Podium"]
+layout_mode = 0
+offset_left = 176.0
+offset_top = 70.0
+offset_right = 464.0
+offset_bottom = 110.0
+pivot_offset = Vector2(144, 20)
+mouse_filter = 2
+color = Color(0.0431373, 0.0470588, 0.117647, 0.54902)
+
+[node name="WormSprite" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -170.0
+offset_top = -142.0
+offset_right = 170.0
+offset_bottom = 198.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("2_wimg")
+expand_mode = 1
+stretch_mode = 5

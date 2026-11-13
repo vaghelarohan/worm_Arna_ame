@@ -1,0 +1,5 @@
+res://Resources/btn_navy.tres
+res://Resources/panel_style.tres
+res://Scripts/Managers/GameManager.gd
+res://Scripts/UI/GameButton.gd
+res://Scripts/UI/PlayScreen.gd

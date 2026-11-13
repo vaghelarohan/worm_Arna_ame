@@ -1,0 +1,492 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://Scripts/UI/PowerUpBar.gd" id="1_pwsc"]
+[ext_resource type="StyleBox" path="res://Resources/btn_powerup_floating.tres" id="2_btnfl"]
+[ext_resource type="StyleBox" path="res://Resources/btn_powerup_floating_hover.tres" id="3_btnfl_h"]
+[ext_resource type="Script" path="res://Scripts/UI/GameButton.gd" id="4_gmbtn"]
+[ext_resource type="Texture2D" path="res://Assets/Icons/magnet.svg" id="5_mag"]
+[ext_resource type="FontFile" path="res://Assets/Fonts/LilitaOne-Regular.ttf" id="6_lilita"]
+[ext_resource type="Texture2D" path="res://Assets/Icons/zap.svg" id="7_zap"]
+[ext_resource type="Texture2D" path="res://Assets/Icons/shield.svg" id="8_shield"]
+[ext_resource type="Texture2D" path="res://Assets/Icons/rocket.svg" id="9_rocket"]
+[ext_resource type="Texture2D" path="res://Assets/Icons/potion.svg" id="10_potion"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_badge_cnt"]
+bg_color = Color(0.0431373, 0.0470588, 0.117647, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_badge_dur"]
+bg_color = Color(0.960784, 0.619608, 0.0431373, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[node name="PowerUpBar" type="Control"]
+custom_minimum_size = Vector2(620, 100)
+offset_right = 560.0
+offset_bottom = 90.0
+script = ExtResource("1_pwsc")
+
+[node name="HBox" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 18
+alignment = 1
+
+[node name="BtnMagnet" type="Button" parent="HBox"]
+custom_minimum_size = Vector2(92, 92)
+layout_mode = 2
+size_flags_vertical = 4
+pivot_offset = Vector2(46, 46)
+focus_mode = 0
+theme_override_styles/normal = ExtResource("2_btnfl")
+theme_override_styles/hover = ExtResource("3_btnfl_h")
+theme_override_styles/pressed = ExtResource("2_btnfl")
+theme_override_styles/focus = ExtResource("3_btnfl_h")
+script = ExtResource("4_gmbtn")
+
+[node name="Icon" type="TextureRect" parent="HBox/BtnMagnet"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -22.0
+offset_top = -22.0
+offset_right = 22.0
+offset_bottom = 22.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("5_mag")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="CountBadge" type="Panel" parent="HBox/BtnMagnet"]
+custom_minimum_size = Vector2(28, 28)
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -16.0
+offset_top = -16.0
+offset_right = 12.0
+offset_bottom = 12.0
+grow_horizontal = 0
+grow_vertical = 0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_badge_cnt")
+
+[node name="Num" type="Label" parent="HBox/BtnMagnet/CountBadge"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("6_lilita")
+theme_override_font_sizes/font_size = 16
+text = "3"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="DurationBadge" type="Panel" parent="HBox/BtnMagnet"]
+visible = false
+custom_minimum_size = Vector2(40, 20)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_top = -12.0
+offset_right = 20.0
+offset_bottom = 8.0
+grow_horizontal = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_badge_dur")
+
+[node name="Num" type="Label" parent="HBox/BtnMagnet/DurationBadge"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.0431373, 0.0470588, 0.117647, 1)
+theme_override_fonts/font = ExtResource("6_lilita")
+theme_override_font_sizes/font_size = 14
+text = "6s"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BtnLightning" type="Button" parent="HBox"]
+custom_minimum_size = Vector2(92, 92)
+layout_mode = 2
+size_flags_vertical = 4
+pivot_offset = Vector2(46, 46)
+focus_mode = 0
+theme_override_styles/normal = ExtResource("2_btnfl")
+theme_override_styles/hover = ExtResource("3_btnfl_h")
+theme_override_styles/pressed = ExtResource("2_btnfl")
+theme_override_styles/focus = ExtResource("3_btnfl_h")
+script = ExtResource("4_gmbtn")
+
+[node name="Icon" type="TextureRect" parent="HBox/BtnLightning"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -22.0
+offset_top = -22.0
+offset_right = 22.0
+offset_bottom = 22.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("7_zap")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="CountBadge" type="Panel" parent="HBox/BtnLightning"]
+custom_minimum_size = Vector2(28, 28)
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -16.0
+offset_top = -16.0
+offset_right = 12.0
+offset_bottom = 12.0
+grow_horizontal = 0
+grow_vertical = 0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_badge_cnt")
+
+[node name="Num" type="Label" parent="HBox/BtnLightning/CountBadge"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("6_lilita")
+theme_override_font_sizes/font_size = 16
+text = "3"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="DurationBadge" type="Panel" parent="HBox/BtnLightning"]
+visible = false
+custom_minimum_size = Vector2(40, 20)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_top = -12.0
+offset_right = 20.0
+offset_bottom = 8.0
+grow_horizontal = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_badge_dur")
+
+[node name="Num" type="Label" parent="HBox/BtnLightning/DurationBadge"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.0431373, 0.0470588, 0.117647, 1)
+theme_override_fonts/font = ExtResource("6_lilita")
+theme_override_font_sizes/font_size = 14
+text = "6s"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BtnShield" type="Button" parent="HBox"]
+custom_minimum_size = Vector2(92, 92)
+layout_mode = 2
+size_flags_vertical = 4
+pivot_offset = Vector2(46, 46)
+focus_mode = 0
+theme_override_styles/normal = ExtResource("2_btnfl")
+theme_override_styles/hover = ExtResource("3_btnfl_h")
+theme_override_styles/pressed = ExtResource("2_btnfl")
+theme_override_styles/focus = ExtResource("3_btnfl_h")
+script = ExtResource("4_gmbtn")
+
+[node name="Icon" type="TextureRect" parent="HBox/BtnShield"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -22.0
+offset_top = -22.0
+offset_right = 22.0
+offset_bottom = 22.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("8_shield")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="CountBadge" type="Panel" parent="HBox/BtnShield"]
+custom_minimum_size = Vector2(28, 28)
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -16.0
+offset_top = -16.0
+offset_right = 12.0
+offset_bottom = 12.0
+grow_horizontal = 0
+grow_vertical = 0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_badge_cnt")
+
+[node name="Num" type="Label" parent="HBox/BtnShield/CountBadge"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("6_lilita")
+theme_override_font_sizes/font_size = 16
+text = "3"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="DurationBadge" type="Panel" parent="HBox/BtnShield"]
+visible = false
+custom_minimum_size = Vector2(40, 20)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_top = -12.0
+offset_right = 20.0
+offset_bottom = 8.0
+grow_horizontal = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_badge_dur")
+
+[node name="Num" type="Label" parent="HBox/BtnShield/DurationBadge"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.0431373, 0.0470588, 0.117647, 1)
+theme_override_fonts/font = ExtResource("6_lilita")
+theme_override_font_sizes/font_size = 14
+text = "6s"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BtnRocket" type="Button" parent="HBox"]
+custom_minimum_size = Vector2(92, 92)
+layout_mode = 2
+size_flags_vertical = 4
+pivot_offset = Vector2(46, 46)
+focus_mode = 0
+theme_override_styles/normal = ExtResource("2_btnfl")
+theme_override_styles/hover = ExtResource("3_btnfl_h")
+theme_override_styles/pressed = ExtResource("2_btnfl")
+theme_override_styles/focus = ExtResource("3_btnfl_h")
+script = ExtResource("4_gmbtn")
+
+[node name="Icon" type="TextureRect" parent="HBox/BtnRocket"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -22.0
+offset_top = -22.0
+offset_right = 22.0
+offset_bottom = 22.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("9_rocket")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="CountBadge" type="Panel" parent="HBox/BtnRocket"]
+custom_minimum_size = Vector2(28, 28)
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -16.0
+offset_top = -16.0
+offset_right = 12.0
+offset_bottom = 12.0
+grow_horizontal = 0
+grow_vertical = 0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_badge_cnt")
+
+[node name="Num" type="Label" parent="HBox/BtnRocket/CountBadge"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("6_lilita")
+theme_override_font_sizes/font_size = 16
+text = "2"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="DurationBadge" type="Panel" parent="HBox/BtnRocket"]
+visible = false
+custom_minimum_size = Vector2(40, 20)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_top = -12.0
+offset_right = 20.0
+offset_bottom = 8.0
+grow_horizontal = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_badge_dur")
+
+[node name="Num" type="Label" parent="HBox/BtnRocket/DurationBadge"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.0431373, 0.0470588, 0.117647, 1)
+theme_override_fonts/font = ExtResource("6_lilita")
+theme_override_font_sizes/font_size = 14
+text = "10s"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BtnPotion" type="Button" parent="HBox"]
+custom_minimum_size = Vector2(92, 92)
+layout_mode = 2
+size_flags_vertical = 4
+pivot_offset = Vector2(46, 46)
+focus_mode = 0
+theme_override_styles/normal = ExtResource("2_btnfl")
+theme_override_styles/hover = ExtResource("3_btnfl_h")
+theme_override_styles/pressed = ExtResource("2_btnfl")
+theme_override_styles/focus = ExtResource("3_btnfl_h")
+script = ExtResource("4_gmbtn")
+
+[node name="Icon" type="TextureRect" parent="HBox/BtnPotion"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -22.0
+offset_top = -22.0
+offset_right = 22.0
+offset_bottom = 22.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("10_potion")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="CountBadge" type="Panel" parent="HBox/BtnPotion"]
+custom_minimum_size = Vector2(28, 28)
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -16.0
+offset_top = -16.0
+offset_right = 12.0
+offset_bottom = 12.0
+grow_horizontal = 0
+grow_vertical = 0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_badge_cnt")
+
+[node name="Num" type="Label" parent="HBox/BtnPotion/CountBadge"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("6_lilita")
+theme_override_font_sizes/font_size = 16
+text = "2"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="DurationBadge" type="Panel" parent="HBox/BtnPotion"]
+visible = false
+custom_minimum_size = Vector2(40, 20)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_top = -12.0
+offset_right = 20.0
+offset_bottom = 8.0
+grow_horizontal = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_badge_dur")
+
+[node name="Num" type="Label" parent="HBox/BtnPotion/DurationBadge"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.0431373, 0.0470588, 0.117647, 1)
+theme_override_fonts/font = ExtResource("6_lilita")
+theme_override_font_sizes/font_size = 14
+text = "15s"
+horizontal_alignment = 1
+vertical_alignment = 1

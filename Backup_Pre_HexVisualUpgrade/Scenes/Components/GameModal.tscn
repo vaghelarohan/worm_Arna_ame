@@ -1,0 +1,107 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://Scripts/UI/GameModal.gd" id="1_gmsc"]
+[ext_resource type="StyleBox" path="res://Resources/panel_style.tres" id="2_pnst"]
+[ext_resource type="FontFile" path="res://Assets/Fonts/LilitaOne-Regular.ttf" id="3_font_lilita"]
+[ext_resource type="StyleBox" path="res://Resources/btn_destructive.tres" id="4_btndes"]
+[ext_resource type="Texture2D" path="res://Assets/Icons/close.svg" id="5_close"]
+[ext_resource type="Script" path="res://Scripts/UI/GameButton.gd" id="6_gmbtn"]
+
+[node name="GameModal" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_gmsc")
+
+[node name="Backdrop" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+flat = true
+
+[node name="Color" type="ColorRect" parent="Backdrop"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.0431373, 0.0470588, 0.117647, 0.74902)
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Panel" type="Panel" parent="CenterContainer"]
+custom_minimum_size = Vector2(900, 680)
+layout_mode = 2
+theme_override_styles/panel = ExtResource("2_pnst")
+
+[node name="Header" type="HBoxContainer" parent="CenterContainer/Panel"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 32.0
+offset_top = 24.0
+offset_right = -32.0
+offset_bottom = 80.0
+grow_horizontal = 2
+
+[node name="Title" type="Label" parent="CenterContainer/Panel/Header"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.984314, 0.74902, 0.141176, 1)
+theme_override_colors/font_outline_color = Color(0.0431373, 0.0470588, 0.117647, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("3_font_lilita")
+theme_override_font_sizes/font_size = 48
+text = "MODAL TITLE"
+vertical_alignment = 1
+
+[node name="CloseBtn" type="Button" parent="CenterContainer/Panel/Header"]
+custom_minimum_size = Vector2(56, 56)
+layout_mode = 2
+theme_override_styles/normal = ExtResource("4_btndes")
+theme_override_styles/hover = ExtResource("4_btndes")
+theme_override_styles/pressed = ExtResource("4_btndes")
+script = ExtResource("6_gmbtn")
+
+[node name="Icon" type="TextureRect" parent="CenterContainer/Panel/Header/CloseBtn"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 12.0
+offset_top = 12.0
+offset_right = -12.0
+offset_bottom = -12.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("5_close")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="ContentSlot" type="Control" parent="CenterContainer/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 32.0
+offset_top = 96.0
+offset_right = -32.0
+offset_bottom = -24.0
+grow_horizontal = 2
+grow_vertical = 2

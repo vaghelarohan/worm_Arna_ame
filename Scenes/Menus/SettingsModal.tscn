@@ -1,0 +1,280 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://Scripts/UI/SettingsModal.gd" id="1_stsc"]
+[ext_resource type="StyleBox" path="res://Resources/tile_style.tres" id="2_tile"]
+[ext_resource type="FontFile" path="res://Assets/Fonts/LilitaOne-Regular.ttf" id="3_lilita"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_switch"]
+bg_color = Color(0.517647, 0.8, 0.0862745, 1)
+corner_radius_top_left = 18
+corner_radius_top_right = 18
+corner_radius_bottom_right = 18
+corner_radius_bottom_left = 18
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_knob"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 14
+corner_radius_top_right = 14
+corner_radius_bottom_right = 14
+corner_radius_bottom_left = 14
+
+[node name="SettingsModal" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_stsc")
+
+[node name="Grid" type="GridContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/h_separation = 20
+theme_override_constants/v_separation = 20
+columns = 2
+
+[node name="BtnSound" type="Button" parent="Grid"]
+custom_minimum_size = Vector2(400, 110)
+layout_mode = 2
+theme_override_styles/normal = ExtResource("2_tile")
+theme_override_styles/hover = ExtResource("2_tile")
+theme_override_styles/pressed = ExtResource("2_tile")
+
+[node name="HBox" type="HBoxContainer" parent="Grid/BtnSound"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 24.0
+offset_right = -24.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Grid/BtnSound/HBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("3_lilita")
+theme_override_font_sizes/font_size = 24
+text = "Sound Effects"
+vertical_alignment = 1
+
+[node name="Switch" type="Panel" parent="Grid/BtnSound"]
+custom_minimum_size = Vector2(64, 36)
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -88.0
+offset_top = -18.0
+offset_right = -24.0
+offset_bottom = 18.0
+grow_horizontal = 0
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_switch")
+
+[node name="Knob" type="Panel" parent="Grid/BtnSound/Switch"]
+custom_minimum_size = Vector2(28, 28)
+layout_mode = 0
+offset_left = 32.0
+offset_top = 4.0
+offset_right = 60.0
+offset_bottom = 32.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_knob")
+
+[node name="BtnMusic" type="Button" parent="Grid"]
+custom_minimum_size = Vector2(400, 110)
+layout_mode = 2
+theme_override_styles/normal = ExtResource("2_tile")
+theme_override_styles/hover = ExtResource("2_tile")
+theme_override_styles/pressed = ExtResource("2_tile")
+
+[node name="HBox" type="HBoxContainer" parent="Grid/BtnMusic"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 24.0
+offset_right = -24.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Grid/BtnMusic/HBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("3_lilita")
+theme_override_font_sizes/font_size = 24
+text = "Music"
+vertical_alignment = 1
+
+[node name="Switch" type="Panel" parent="Grid/BtnMusic"]
+custom_minimum_size = Vector2(64, 36)
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -88.0
+offset_top = -18.0
+offset_right = -24.0
+offset_bottom = 18.0
+grow_horizontal = 0
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_switch")
+
+[node name="Knob" type="Panel" parent="Grid/BtnMusic/Switch"]
+custom_minimum_size = Vector2(28, 28)
+layout_mode = 0
+offset_left = 32.0
+offset_top = 4.0
+offset_right = 60.0
+offset_bottom = 32.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_knob")
+
+[node name="BtnVibration" type="Button" parent="Grid"]
+custom_minimum_size = Vector2(400, 110)
+layout_mode = 2
+theme_override_styles/normal = ExtResource("2_tile")
+theme_override_styles/hover = ExtResource("2_tile")
+theme_override_styles/pressed = ExtResource("2_tile")
+
+[node name="HBox" type="HBoxContainer" parent="Grid/BtnVibration"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 24.0
+offset_right = -24.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Grid/BtnVibration/HBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("3_lilita")
+theme_override_font_sizes/font_size = 24
+text = "Vibration"
+vertical_alignment = 1
+
+[node name="Switch" type="Panel" parent="Grid/BtnVibration"]
+custom_minimum_size = Vector2(64, 36)
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -88.0
+offset_top = -18.0
+offset_right = -24.0
+offset_bottom = 18.0
+grow_horizontal = 0
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_switch")
+
+[node name="Knob" type="Panel" parent="Grid/BtnVibration/Switch"]
+custom_minimum_size = Vector2(28, 28)
+layout_mode = 0
+offset_left = 32.0
+offset_top = 4.0
+offset_right = 60.0
+offset_bottom = 32.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_knob")
+
+[node name="BtnGraphics" type="Button" parent="Grid"]
+custom_minimum_size = Vector2(400, 110)
+layout_mode = 2
+theme_override_styles/normal = ExtResource("2_tile")
+theme_override_styles/hover = ExtResource("2_tile")
+theme_override_styles/pressed = ExtResource("2_tile")
+
+[node name="HBox" type="HBoxContainer" parent="Grid/BtnGraphics"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 24.0
+offset_right = -24.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Grid/BtnGraphics/HBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("3_lilita")
+theme_override_font_sizes/font_size = 24
+text = "High Graphics"
+vertical_alignment = 1
+
+[node name="Switch" type="Panel" parent="Grid/BtnGraphics"]
+custom_minimum_size = Vector2(64, 36)
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -88.0
+offset_top = -18.0
+offset_right = -24.0
+offset_bottom = 18.0
+grow_horizontal = 0
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_switch")
+
+[node name="Knob" type="Panel" parent="Grid/BtnGraphics/Switch"]
+custom_minimum_size = Vector2(28, 28)
+layout_mode = 0
+offset_left = 32.0
+offset_top = 4.0
+offset_right = 60.0
+offset_bottom = 32.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_knob")
+
+[node name="BtnThemes" type="Button" parent="Grid"]
+custom_minimum_size = Vector2(400, 110)
+layout_mode = 2
+theme_override_styles/normal = ExtResource("2_tile")
+theme_override_styles/hover = ExtResource("2_tile")
+theme_override_styles/pressed = ExtResource("2_tile")
+
+[node name="HBox" type="HBoxContainer" parent="Grid/BtnThemes"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 24.0
+offset_right = -24.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Grid/BtnThemes/HBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("3_lilita")
+theme_override_font_sizes/font_size = 24
+text = "Arena Environments"
+vertical_alignment = 1
+
+[node name="Action" type="Label" parent="Grid/BtnThemes/HBox"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_lilita")
+theme_override_font_sizes/font_size = 18
+theme_override_colors/font_color = Color(0.219608, 0.74902, 1, 1)
+text = "CHANGE ▶"
+vertical_alignment = 1

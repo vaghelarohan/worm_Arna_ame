@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96">
+  <defs>
+    <radialGradient id="shGlow" cx="48" cy="48" r="44" gradientUnits="userSpaceOnUse">
+      <stop offset="60%" stop-color="rgba(56, 189, 248, 0)"/>
+      <stop offset="90%" stop-color="rgba(56, 189, 248, 0.45)"/>
+      <stop offset="100%" stop-color="rgba(56, 189, 248, 0.95)"/>
+    </radialGradient>
+    <linearGradient id="shBody" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#7dd3fc"/>
+      <stop offset="45%" stop-color="#0284c7"/>
+      <stop offset="100%" stop-color="#075985"/>
+    </linearGradient>
+  </defs>
+  <!-- Floor aura ring -->
+  <circle cx="48" cy="48" r="42" fill="none" stroke="#38bdf8" stroke-width="4" stroke-opacity="0.9"/>
+  <circle cx="48" cy="48" r="42" fill="url(#shGlow)"/>
+  <!-- Heraldic Shield Body -->
+  <path d="M48 14 C64 14 74 18 76 34 C76 62 58 78 48 84 C38 78 20 62 20 34 C22 18 32 14 48 14 Z" fill="url(#shBody)" stroke="#0c4a6e" stroke-width="3"/>
+  <!-- Inner Shield Glow & Chevron -->
+  <path d="M48 20 C60 20 68 24 70 36 C70 58 56 72 48 76 C40 72 26 58 26 36 C28 24 36 20 48 20 Z" fill="none" stroke="#e0f2fe" stroke-width="2.5"/>
+  <polygon points="48,30 60,46 54,46 48,38 42,46 36,46" fill="#fef08a"/>
+  <!-- Energy Sparkle -->
+  <circle cx="48" cy="56" r="6" fill="#38bdf8"/>
+  <circle cx="48" cy="56" r="3" fill="#ffffff"/>
+</svg>

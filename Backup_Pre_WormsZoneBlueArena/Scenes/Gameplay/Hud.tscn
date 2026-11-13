@@ -1,0 +1,424 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://Scripts/UI/Hud.gd" id="1_hdsc"]
+[ext_resource type="StyleBox" path="res://Resources/panel_style.tres" id="2_pnst"]
+[ext_resource type="FontFile" path="res://Assets/Fonts/LilitaOne-Regular.ttf" id="3_lilita"]
+[ext_resource type="FontFile" path="res://Assets/Fonts/Fredoka.ttf" id="4_fredoka"]
+[ext_resource type="Texture2D" path="res://Assets/Characters/worm-hero.png" id="5_whero"]
+[ext_resource type="Texture2D" path="res://Assets/Icons/crown.svg" id="6_crown"]
+[ext_resource type="Texture2D" path="res://Assets/Icons/skull.svg" id="7_skull"]
+[ext_resource type="Texture2D" path="res://Assets/Icons/timer.svg" id="8_timer"]
+[ext_resource type="Texture2D" path="res://Assets/Icons/coin.svg" id="9_coin"]
+[ext_resource type="StyleBox" path="res://Resources/btn_navy.tres" id="10_btnnv"]
+[ext_resource type="Texture2D" path="res://Assets/Icons/pause.svg" id="11_pause"]
+[ext_resource type="Texture2D" path="res://Assets/Icons/trophy.svg" id="12_trophy"]
+[ext_resource type="Script" path="res://Scripts/UI/GameButton.gd" id="13_gmbtn"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_avatar_hud"]
+bg_color = Color(0.0431373, 0.0862745, 0.24, 0.95)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0, 0.901961, 1, 1)
+corner_radius_top_left = 46
+corner_radius_top_right = 46
+corner_radius_bottom_right = 46
+corner_radius_bottom_left = 46
+shadow_color = Color(0, 0.8, 1, 0.6)
+shadow_size = 16
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kills"]
+bg_color = Color(0.08, 0.04, 0.18, 0.92)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.75, 0.35, 0.98, 1)
+corner_radius_top_left = 22
+corner_radius_top_right = 22
+corner_radius_bottom_right = 22
+corner_radius_bottom_left = 22
+shadow_color = Color(0.75, 0.35, 0.98, 0.45)
+shadow_size = 14
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_timer"]
+bg_color = Color(0.0431373, 0.054902, 0.145098, 0.92)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0.901961, 1, 1)
+corner_radius_top_left = 24
+corner_radius_top_right = 24
+corner_radius_bottom_right = 24
+corner_radius_bottom_left = 24
+shadow_color = Color(0, 0.8, 1, 0.55)
+shadow_size = 16
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_coins"]
+bg_color = Color(0.0431373, 0.054902, 0.145098, 0.92)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.98, 0.75, 0.12, 1)
+corner_radius_top_left = 22
+corner_radius_top_right = 22
+corner_radius_bottom_right = 22
+corner_radius_bottom_left = 22
+shadow_color = Color(0.96, 0.62, 0.04, 0.45)
+shadow_size = 14
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xp_hud"]
+bg_color = Color(0.04, 0.06, 0.15, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xp_fill_hud"]
+bg_color = Color(0, 0.901961, 1, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+shadow_color = Color(0, 0.8, 1, 0.65)
+shadow_size = 8
+
+[node name="Hud" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_hdsc")
+
+[node name="PlayerBadge" type="Control" parent="."]
+custom_minimum_size = Vector2(360, 92)
+layout_mode = 0
+offset_left = 24.0
+offset_top = 16.0
+offset_right = 384.0
+offset_bottom = 108.0
+mouse_filter = 2
+
+[node name="Panel" type="Panel" parent="PlayerBadge"]
+layout_mode = 0
+offset_left = 46.0
+offset_top = 6.0
+offset_right = 360.0
+offset_bottom = 86.0
+theme_override_styles/panel = ExtResource("2_pnst")
+
+[node name="Top" type="HBoxContainer" parent="PlayerBadge/Panel"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 50.0
+offset_top = 8.0
+offset_right = -12.0
+offset_bottom = 36.0
+grow_horizontal = 2
+
+[node name="Name" type="Label" parent="PlayerBadge/Panel/Top"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_outline_color = Color(0.0431373, 0.0470588, 0.117647, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("3_lilita")
+theme_override_font_sizes/font_size = 24
+text = "Finalboss"
+
+[node name="Rank" type="Label" parent="PlayerBadge/Panel/Top"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.133333, 0.827451, 0.933333, 1)
+theme_override_fonts/font = ExtResource("4_fredoka")
+theme_override_font_sizes/font_size = 14
+text = "Rank: Novice"
+
+[node name="Row" type="HBoxContainer" parent="PlayerBadge/Panel"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 50.0
+offset_top = -38.0
+offset_right = -12.0
+offset_bottom = -12.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/separation = 8
+
+[node name="LvBadge" type="Panel" parent="PlayerBadge/Panel/Row"]
+custom_minimum_size = Vector2(48, 24)
+layout_mode = 2
+theme_override_styles/panel = ExtResource("10_btnnv")
+
+[node name="Num" type="Label" parent="PlayerBadge/Panel/Row/LvBadge"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("3_lilita")
+theme_override_font_sizes/font_size = 15
+text = "Lv.1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Bar" type="ProgressBar" parent="PlayerBadge/Panel/Row"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_styles/background = SubResource("StyleBoxFlat_xp_hud")
+theme_override_styles/fill = SubResource("StyleBoxFlat_xp_fill_hud")
+max_value = 500.0
+value = 105.0
+show_percentage = false
+
+[node name="XpText" type="Label" parent="PlayerBadge/Panel/Row/Bar"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_outline_color = Color(0.0431373, 0.0470588, 0.117647, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("3_lilita")
+theme_override_font_sizes/font_size = 14
+text = "105/500 XP"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Avatar" type="Panel" parent="PlayerBadge"]
+custom_minimum_size = Vector2(92, 92)
+layout_mode = 0
+offset_right = 92.0
+offset_bottom = 92.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_avatar_hud")
+
+[node name="Img" type="TextureRect" parent="PlayerBadge/Avatar"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -38.0
+offset_top = -38.0
+offset_right = 38.0
+offset_bottom = 38.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_whero")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="Crown" type="TextureRect" parent="PlayerBadge/Avatar"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 0
+offset_left = 12.0
+offset_top = -18.0
+offset_right = 44.0
+offset_bottom = 14.0
+rotation = -0.20944
+texture = ExtResource("6_crown")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="TopKills" type="Panel" parent="."]
+custom_minimum_size = Vector2(170, 48)
+layout_mode = 0
+offset_left = 450.0
+offset_top = 24.0
+offset_right = 620.0
+offset_bottom = 72.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_kills")
+
+[node name="HBox" type="HBoxContainer" parent="TopKills"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 10
+alignment = 1
+
+[node name="Icon" type="TextureRect" parent="TopKills/HBox"]
+custom_minimum_size = Vector2(28, 28)
+layout_mode = 2
+size_flags_vertical = 4
+texture = ExtResource("7_skull")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Val" type="Label" parent="TopKills/HBox"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0.0431373, 0.0470588, 0.117647, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("3_lilita")
+theme_override_font_sizes/font_size = 22
+text = "Kills: 0"
+vertical_alignment = 1
+
+[node name="TopTimer" type="Panel" parent="."]
+custom_minimum_size = Vector2(220, 60)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -110.0
+offset_top = 16.0
+offset_right = 110.0
+offset_bottom = 76.0
+grow_horizontal = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_timer")
+
+[node name="HBox" type="HBoxContainer" parent="TopTimer"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 12
+alignment = 1
+
+[node name="Icon" type="TextureRect" parent="TopTimer/HBox"]
+custom_minimum_size = Vector2(36, 36)
+layout_mode = 2
+size_flags_vertical = 4
+texture = ExtResource("8_timer")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Val" type="Label" parent="TopTimer/HBox"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0.0431373, 0.0470588, 0.117647, 1)
+theme_override_constants/outline_size = 7
+theme_override_fonts/font = ExtResource("3_lilita")
+theme_override_font_sizes/font_size = 40
+text = "00:00"
+vertical_alignment = 1
+
+[node name="TopCoins" type="Panel" parent="."]
+custom_minimum_size = Vector2(180, 50)
+layout_mode = 0
+offset_left = 1270.0
+offset_top = 24.0
+offset_right = 1450.0
+offset_bottom = 74.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_coins")
+
+[node name="HBox" type="HBoxContainer" parent="TopCoins"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 10
+alignment = 1
+
+[node name="Icon" type="TextureRect" parent="TopCoins/HBox"]
+custom_minimum_size = Vector2(36, 36)
+layout_mode = 2
+size_flags_vertical = 4
+texture = ExtResource("9_coin")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Val" type="Label" parent="TopCoins/HBox"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0.0431373, 0.0470588, 0.117647, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("3_lilita")
+theme_override_font_sizes/font_size = 28
+text = "5,078"
+vertical_alignment = 1
+
+[node name="PauseBtn" type="Button" parent="."]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 0
+offset_left = 1480.0
+offset_top = 16.0
+offset_right = 1560.0
+offset_bottom = 96.0
+theme_override_styles/normal = ExtResource("10_btnnv")
+theme_override_styles/hover = ExtResource("10_btnnv")
+theme_override_styles/pressed = ExtResource("10_btnnv")
+script = ExtResource("13_gmbtn")
+
+[node name="Icon" type="TextureRect" parent="PauseBtn"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("11_pause")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Leaderboard" type="Panel" parent="."]
+custom_minimum_size = Vector2(300, 200)
+layout_mode = 0
+offset_left = 24.0
+offset_top = 140.0
+offset_right = 324.0
+offset_bottom = 340.0
+theme_override_styles/panel = ExtResource("2_pnst")
+
+[node name="Header" type="HBoxContainer" parent="Leaderboard"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 14.0
+offset_top = 8.0
+offset_right = -14.0
+offset_bottom = 36.0
+grow_horizontal = 2
+theme_override_constants/separation = 8
+
+[node name="Icon" type="TextureRect" parent="Leaderboard/Header"]
+custom_minimum_size = Vector2(22, 22)
+layout_mode = 2
+size_flags_vertical = 4
+texture = ExtResource("12_trophy")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Title" type="Label" parent="Leaderboard/Header"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("3_lilita")
+theme_override_font_sizes/font_size = 20
+text = "Leaderboard"
+vertical_alignment = 1
+
+[node name="List" type="VBoxContainer" parent="Leaderboard"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 14.0
+offset_top = 40.0
+offset_right = -14.0
+offset_bottom = -8.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 4

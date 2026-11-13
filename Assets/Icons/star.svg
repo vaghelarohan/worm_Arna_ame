@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="128" height="128">
+  <defs>
+    <!-- Outer Glow -->
+    <filter id="starGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="3.5" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+    <!-- Gold Gradients -->
+    <linearGradient id="goldLight" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fffbeb" />
+      <stop offset="35%" stop-color="#fef08a" />
+      <stop offset="70%" stop-color="#facc15" />
+      <stop offset="100%" stop-color="#eab308" />
+    </linearGradient>
+    <linearGradient id="goldDark" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#eab308" />
+      <stop offset="50%" stop-color="#ca8a04" />
+      <stop offset="100%" stop-color="#854d0e" />
+    </linearGradient>
+    <linearGradient id="goldMid" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#fde047" />
+      <stop offset="100%" stop-color="#d97706" />
+    </linearGradient>
+    <radialGradient id="auraGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="40%" stop-color="#fbbf24" stop-opacity="0.5" />
+      <stop offset="75%" stop-color="#f59e0b" stop-opacity="0.15" />
+      <stop offset="100%" stop-color="#d97706" stop-opacity="0" />
+    </radialGradient>
+  </defs>
+
+  <!-- Aura Glow Behind Star -->
+  <circle cx="64" cy="64" r="56" fill="url(#auraGlow)" />
+
+  <!-- Drop Shadow Star -->
+  <polygon points="64,18 78,48 112,52 86,76 93,110 64,93 35,110 42,76 16,52 50,48"
+           fill="#451a03" opacity="0.6" transform="translate(0, 5)" />
+
+  <!-- Base Star Outline / Border -->
+  <polygon points="64,14 80,47 116,51 89,77 97,112 64,94 31,112 39,77 12,51 48,47"
+           fill="#78350f" stroke="#451a03" stroke-width="2.5" stroke-linejoin="round" />
+
+  <!-- Faceted 3D Star: 5 Light facets, 5 Dark facets -->
+  <!-- Top Point -->
+  <polygon points="64,16 64,66 49,48" fill="url(#goldLight)" />
+  <polygon points="64,16 64,66 79,48" fill="url(#goldDark)" />
+
+  <!-- Top-Right Point -->
+  <polygon points="114,53 64,66 79,48" fill="url(#goldLight)" />
+  <polygon points="114,53 64,66 87,76" fill="url(#goldDark)" />
+
+  <!-- Bottom-Right Point -->
+  <polygon points="95,110 64,66 87,76" fill="url(#goldLight)" />
+  <polygon points="95,110 64,66 64,93" fill="url(#goldDark)" />
+
+  <!-- Bottom-Left Point -->
+  <polygon points="33,110 64,66 64,93" fill="url(#goldLight)" />
+  <polygon points="33,110 64,66 41,76" fill="url(#goldDark)" />
+
+  <!-- Top-Left Point -->
+  <polygon points="14,53 64,66 41,76" fill="url(#goldLight)" />
+  <polygon points="14,53 64,66 49,48" fill="url(#goldDark)" />
+
+  <!-- Center Diamond Crystal Accent -->
+  <polygon points="64,52 74,64 64,76 54,64" fill="#ffffff" opacity="0.85" filter="url(#starGlow)" />
+  <polygon points="64,55 71,64 64,73 57,64" fill="url(#goldLight)" />
+
+  <!-- Top Specular Glint -->
+  <circle cx="64" cy="24" r="3.5" fill="#ffffff" opacity="0.9" />
+  <circle cx="75" cy="50" r="2.5" fill="#ffffff" opacity="0.8" />
+  <circle cx="64" cy="64" r="4" fill="#ffffff" opacity="0.95" />
+</svg>

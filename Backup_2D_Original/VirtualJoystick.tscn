@@ -1,0 +1,138 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://Scripts/UI/VirtualJoystick.gd" id="1_vjsc"]
+[ext_resource type="Texture2D" path="res://Assets/Icons/chevron_up.svg" id="2_chup"]
+[ext_resource type="Texture2D" path="res://Assets/Icons/chevron_down.svg" id="3_chdn"]
+[ext_resource type="Texture2D" path="res://Assets/Icons/chevron_left.svg" id="4_chlt"]
+[ext_resource type="Texture2D" path="res://Assets/Icons/chevron_right.svg" id="5_chrt"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_js_base"]
+bg_color = Color(0.0784314, 0.0901961, 0.219608, 0.4)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.133333, 0.827451, 0.933333, 1)
+corner_radius_top_left = 130
+corner_radius_top_right = 130
+corner_radius_bottom_right = 130
+corner_radius_bottom_left = 130
+shadow_color = Color(0.133333, 0.827451, 0.933333, 0.5)
+shadow_size = 24
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_knob"]
+bg_color = Color(0.231373, 0.439216, 0.898039, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.133333, 0.827451, 0.933333, 0.9)
+corner_radius_top_left = 55
+corner_radius_top_right = 55
+corner_radius_bottom_right = 55
+corner_radius_bottom_left = 55
+shadow_color = Color(0.145098, 0.388235, 0.921569, 0.6)
+shadow_size = 20
+
+[node name="VirtualJoystick" type="Control"]
+custom_minimum_size = Vector2(260, 260)
+offset_right = 260.0
+offset_bottom = 260.0
+script = ExtResource("1_vjsc")
+
+[node name="Base" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_js_base")
+
+[node name="Up" type="TextureRect" parent="Base"]
+custom_minimum_size = Vector2(36, 36)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -18.0
+offset_top = 10.0
+offset_right = 18.0
+offset_bottom = 46.0
+grow_horizontal = 2
+mouse_filter = 2
+texture = ExtResource("2_chup")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Down" type="TextureRect" parent="Base"]
+custom_minimum_size = Vector2(36, 36)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -18.0
+offset_top = -46.0
+offset_right = 18.0
+offset_bottom = -10.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 2
+texture = ExtResource("3_chdn")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Left" type="TextureRect" parent="Base"]
+custom_minimum_size = Vector2(36, 36)
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 10.0
+offset_top = -18.0
+offset_right = 46.0
+offset_bottom = 18.0
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("4_chlt")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Right" type="TextureRect" parent="Base"]
+custom_minimum_size = Vector2(36, 36)
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -46.0
+offset_top = -18.0
+offset_right = -10.0
+offset_bottom = 18.0
+grow_horizontal = 0
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("5_chrt")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Knob" type="Panel" parent="."]
+custom_minimum_size = Vector2(110, 110)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -55.0
+offset_top = -55.0
+offset_right = 55.0
+offset_bottom = 55.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_knob")

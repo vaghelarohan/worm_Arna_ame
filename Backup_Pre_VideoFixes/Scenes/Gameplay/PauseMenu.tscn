@@ -1,0 +1,213 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://Scripts/UI/PauseMenu.gd" id="1_pmsc"]
+[ext_resource type="StyleBox" path="res://Resources/panel_style.tres" id="2_pnst"]
+[ext_resource type="FontFile" path="res://Assets/Fonts/LilitaOne-Regular.ttf" id="3_lilita"]
+[ext_resource type="StyleBox" path="res://Resources/btn_green.tres" id="4_btngr"]
+[ext_resource type="StyleBox" path="res://Resources/btn_gold.tres" id="5_btngd"]
+[ext_resource type="StyleBox" path="res://Resources/btn_blue.tres" id="6_btnbl"]
+[ext_resource type="StyleBox" path="res://Resources/btn_purple.tres" id="7_btnpr"]
+[ext_resource type="Script" path="res://Scripts/UI/GameButton.gd" id="8_gmbtn"]
+[ext_resource type="Texture2D" path="res://Assets/Icons/play.svg" id="9_play"]
+[ext_resource type="Texture2D" path="res://Assets/Icons/rotate_ccw.svg" id="10_rot"]
+[ext_resource type="Texture2D" path="res://Assets/Icons/settings.svg" id="11_sett"]
+[ext_resource type="Texture2D" path="res://Assets/Icons/home.svg" id="12_home"]
+
+[node name="PauseMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_pmsc")
+
+[node name="Backdrop" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0431373, 0.0470588, 0.117647, 0.74902)
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="CenterContainer"]
+custom_minimum_size = Vector2(520, 520)
+layout_mode = 2
+theme_override_styles/panel = ExtResource("2_pnst")
+
+[node name="Title" type="Label" parent="CenterContainer/Panel"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 32.0
+offset_bottom = 96.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.984314, 0.74902, 0.141176, 1)
+theme_override_colors/font_outline_color = Color(0.0431373, 0.0470588, 0.117647, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("3_lilita")
+theme_override_font_sizes/font_size = 56
+text = "PAUSED"
+horizontal_alignment = 1
+
+[node name="VBox" type="VBoxContainer" parent="CenterContainer/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 48.0
+offset_top = 110.0
+offset_right = -48.0
+offset_bottom = -32.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 16
+
+[node name="ResumeBtn" type="Button" parent="CenterContainer/Panel/VBox"]
+custom_minimum_size = Vector2(0, 72)
+layout_mode = 2
+theme_override_styles/normal = ExtResource("4_btngr")
+theme_override_styles/hover = ExtResource("4_btngr")
+theme_override_styles/pressed = ExtResource("4_btngr")
+script = ExtResource("8_gmbtn")
+
+[node name="HBox" type="HBoxContainer" parent="CenterContainer/Panel/VBox/ResumeBtn"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 14
+alignment = 1
+
+[node name="Icon" type="TextureRect" parent="CenterContainer/Panel/VBox/ResumeBtn/HBox"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+size_flags_vertical = 4
+mouse_filter = 2
+texture = ExtResource("9_play")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Text" type="Label" parent="CenterContainer/Panel/VBox/ResumeBtn/HBox"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0.0431373, 0.0470588, 0.117647, 1)
+theme_override_constants/outline_size = 6
+theme_override_fonts/font = ExtResource("3_lilita")
+theme_override_font_sizes/font_size = 30
+text = "RESUME"
+
+[node name="RestartBtn" type="Button" parent="CenterContainer/Panel/VBox"]
+custom_minimum_size = Vector2(0, 72)
+layout_mode = 2
+theme_override_styles/normal = ExtResource("5_btngd")
+theme_override_styles/hover = ExtResource("5_btngd")
+theme_override_styles/pressed = ExtResource("5_btngd")
+script = ExtResource("8_gmbtn")
+
+[node name="HBox" type="HBoxContainer" parent="CenterContainer/Panel/VBox/RestartBtn"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 14
+alignment = 1
+
+[node name="Icon" type="TextureRect" parent="CenterContainer/Panel/VBox/RestartBtn/HBox"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+size_flags_vertical = 4
+mouse_filter = 2
+texture = ExtResource("10_rot")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Text" type="Label" parent="CenterContainer/Panel/VBox/RestartBtn/HBox"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0.0431373, 0.0470588, 0.117647, 1)
+theme_override_constants/outline_size = 6
+theme_override_fonts/font = ExtResource("3_lilita")
+theme_override_font_sizes/font_size = 30
+text = "RESTART"
+
+[node name="SettingsBtn" type="Button" parent="CenterContainer/Panel/VBox"]
+custom_minimum_size = Vector2(0, 72)
+layout_mode = 2
+theme_override_styles/normal = ExtResource("6_btnbl")
+theme_override_styles/hover = ExtResource("6_btnbl")
+theme_override_styles/pressed = ExtResource("6_btnbl")
+script = ExtResource("8_gmbtn")
+
+[node name="HBox" type="HBoxContainer" parent="CenterContainer/Panel/VBox/SettingsBtn"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 14
+alignment = 1
+
+[node name="Icon" type="TextureRect" parent="CenterContainer/Panel/VBox/SettingsBtn/HBox"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+size_flags_vertical = 4
+mouse_filter = 2
+texture = ExtResource("11_sett")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Text" type="Label" parent="CenterContainer/Panel/VBox/SettingsBtn/HBox"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0.0431373, 0.0470588, 0.117647, 1)
+theme_override_constants/outline_size = 6
+theme_override_fonts/font = ExtResource("3_lilita")
+theme_override_font_sizes/font_size = 30
+text = "SETTINGS"
+
+[node name="MenuBtn" type="Button" parent="CenterContainer/Panel/VBox"]
+custom_minimum_size = Vector2(0, 72)
+layout_mode = 2
+theme_override_styles/normal = ExtResource("7_btnpr")
+theme_override_styles/hover = ExtResource("7_btnpr")
+theme_override_styles/pressed = ExtResource("7_btnpr")
+script = ExtResource("8_gmbtn")
+
+[node name="HBox" type="HBoxContainer" parent="CenterContainer/Panel/VBox/MenuBtn"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 14
+alignment = 1
+
+[node name="Icon" type="TextureRect" parent="CenterContainer/Panel/VBox/MenuBtn/HBox"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+size_flags_vertical = 4
+mouse_filter = 2
+texture = ExtResource("12_home")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Text" type="Label" parent="CenterContainer/Panel/VBox/MenuBtn/HBox"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0.0431373, 0.0470588, 0.117647, 1)
+theme_override_constants/outline_size = 6
+theme_override_fonts/font = ExtResource("3_lilita")
+theme_override_font_sizes/font_size = 30
+text = "MAIN MENU"

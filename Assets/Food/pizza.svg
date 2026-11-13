@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96">
+  <defs>
+    <radialGradient id="cheeseGrad" cx="48" cy="36" r="42" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#fef08a"/>
+      <stop offset="60%" stop-color="#facc15"/>
+      <stop offset="100%" stop-color="#ea580c"/>
+    </radialGradient>
+    <linearGradient id="crustGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#f59e0b"/>
+      <stop offset="100%" stop-color="#b45309"/>
+    </linearGradient>
+  </defs>
+  <!-- Shadow -->
+  <ellipse cx="48" cy="84" rx="34" ry="8" fill="rgba(0,0,0,0.22)"/>
+  <!-- Pizza Slice Triangle Base -->
+  <path d="M48 84 L14 26 Q48 10 82 26 Z" fill="url(#cheeseGrad)" stroke="#78350f" stroke-width="2.5" stroke-linejoin="round"/>
+  <!-- Puffy Crust at top -->
+  <path d="M12 26 Q48 6 84 26" fill="none" stroke="url(#crustGrad)" stroke-width="9" stroke-linecap="round"/>
+  <path d="M14 24 Q48 8 82 24" fill="none" stroke="rgba(255,255,255,0.45)" stroke-width="2" stroke-linecap="round"/>
+  <!-- Tomato Sauce Peek -->
+  <path d="M16 29 Q48 18 80 29" fill="none" stroke="#dc2626" stroke-width="3"/>
+  <!-- Pepperoni Slices -->
+  <ellipse cx="36" cy="40" rx="9" ry="8" fill="#dc2626" stroke="#991b1b" stroke-width="2"/>
+  <circle cx="34" cy="38" r="1.5" fill="#fca5a5"/>
+  <ellipse cx="60" cy="46" rx="8" ry="7" fill="#dc2626" stroke="#991b1b" stroke-width="2"/>
+  <circle cx="58" cy="44" r="1.3" fill="#fca5a5"/>
+  <ellipse cx="48" cy="62" rx="7" ry="6" fill="#dc2626" stroke="#991b1b" stroke-width="2"/>
+  <circle cx="46" cy="60" r="1.2" fill="#fca5a5"/>
+  <!-- Melted Cheese Highlight Strings -->
+  <path d="M30 48 Q38 58 42 70" fill="none" stroke="#fef9c3" stroke-width="2.5" stroke-linecap="round"/>
+  <!-- Green Pepper Bits -->
+  <path d="M44 32 Q48 30 52 34" fill="none" stroke="#22c55e" stroke-width="3" stroke-linecap="round"/>
+  <path d="M30 60 Q34 58 38 62" fill="none" stroke="#22c55e" stroke-width="2.5" stroke-linecap="round"/>
+  <path d="M58 64 Q62 62 66 66" fill="none" stroke="#22c55e" stroke-width="2.5" stroke-linecap="round"/>
+  <!-- Black Olive Rings -->
+  <circle cx="50" cy="42" r="3.5" fill="none" stroke="#1e293b" stroke-width="2.2"/>
+</svg>
+

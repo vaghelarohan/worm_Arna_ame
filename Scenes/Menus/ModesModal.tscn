@@ -1,0 +1,175 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://Scripts/UI/ModesModal.gd" id="1_mdsc"]
+[ext_resource type="StyleBox" path="res://Resources/btn_gold.tres" id="2_btngd"]
+[ext_resource type="StyleBox" path="res://Resources/btn_cyan_navy.tres" id="3_btncn"]
+[ext_resource type="StyleBox" path="res://Resources/btn_purple.tres" id="4_btnpr"]
+[ext_resource type="Script" path="res://Scripts/UI/GameButton.gd" id="5_gmbtn"]
+[ext_resource type="Texture2D" path="res://Assets/Icons/play.svg" id="6_play"]
+[ext_resource type="Texture2D" path="res://Assets/Icons/infinity.svg" id="7_inf"]
+[ext_resource type="Texture2D" path="res://Assets/Icons/trophy.svg" id="8_trophy"]
+[ext_resource type="FontFile" path="res://Assets/Fonts/LilitaOne-Regular.ttf" id="9_lilita"]
+[ext_resource type="FontFile" path="res://Assets/Fonts/Fredoka.ttf" id="10_fredoka"]
+
+[node name="ModesModal" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_mdsc")
+
+[node name="Grid" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="BtnQuick" type="Button" parent="Grid"]
+custom_minimum_size = Vector2(260, 280)
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_styles/normal = ExtResource("2_btngd")
+theme_override_styles/hover = ExtResource("2_btngd")
+theme_override_styles/pressed = ExtResource("2_btngd")
+script = ExtResource("5_gmbtn")
+
+[node name="Col" type="VBoxContainer" parent="Grid/BtnQuick"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 16.0
+offset_top = 24.0
+offset_right = -16.0
+offset_bottom = -24.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 16
+alignment = 1
+
+[node name="Icon" type="TextureRect" parent="Grid/BtnQuick/Col"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+size_flags_horizontal = 4
+mouse_filter = 2
+texture = ExtResource("6_play")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Title" type="Label" parent="Grid/BtnQuick/Col"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0.0431373, 0.0470588, 0.117647, 1)
+theme_override_constants/outline_size = 6
+theme_override_fonts/font = ExtResource("9_lilita")
+theme_override_font_sizes/font_size = 30
+text = "Quick Play"
+horizontal_alignment = 1
+
+[node name="Desc" type="Label" parent="Grid/BtnQuick/Col"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("10_fredoka")
+theme_override_font_sizes/font_size = 18
+text = "Short timed matches"
+horizontal_alignment = 1
+
+[node name="BtnInfinity" type="Button" parent="Grid"]
+custom_minimum_size = Vector2(260, 280)
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_styles/normal = ExtResource("3_btncn")
+theme_override_styles/hover = ExtResource("3_btncn")
+theme_override_styles/pressed = ExtResource("3_btncn")
+script = ExtResource("5_gmbtn")
+
+[node name="Col" type="VBoxContainer" parent="Grid/BtnInfinity"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 16.0
+offset_top = 24.0
+offset_right = -16.0
+offset_bottom = -24.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 16
+alignment = 1
+
+[node name="Icon" type="TextureRect" parent="Grid/BtnInfinity/Col"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+size_flags_horizontal = 4
+mouse_filter = 2
+texture = ExtResource("7_inf")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Title" type="Label" parent="Grid/BtnInfinity/Col"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0.0431373, 0.0470588, 0.117647, 1)
+theme_override_constants/outline_size = 6
+theme_override_fonts/font = ExtResource("9_lilita")
+theme_override_font_sizes/font_size = 30
+text = "Infinity Mode"
+horizontal_alignment = 1
+
+[node name="Desc" type="Label" parent="Grid/BtnInfinity/Col"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("10_fredoka")
+theme_override_font_sizes/font_size = 18
+text = "Survive as long as you can"
+horizontal_alignment = 1
+
+[node name="BtnTournament" type="Button" parent="Grid"]
+custom_minimum_size = Vector2(260, 280)
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_styles/normal = ExtResource("4_btnpr")
+theme_override_styles/hover = ExtResource("4_btnpr")
+theme_override_styles/pressed = ExtResource("4_btnpr")
+script = ExtResource("5_gmbtn")
+
+[node name="Col" type="VBoxContainer" parent="Grid/BtnTournament"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 16.0
+offset_top = 24.0
+offset_right = -16.0
+offset_bottom = -24.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 16
+alignment = 1
+
+[node name="Icon" type="TextureRect" parent="Grid/BtnTournament/Col"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+size_flags_horizontal = 4
+mouse_filter = 2
+texture = ExtResource("8_trophy")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Title" type="Label" parent="Grid/BtnTournament/Col"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0.0431373, 0.0470588, 0.117647, 1)
+theme_override_constants/outline_size = 6
+theme_override_fonts/font = ExtResource("9_lilita")
+theme_override_font_sizes/font_size = 30
+text = "Tournament"
+horizontal_alignment = 1
+
+[node name="Desc" type="Label" parent="Grid/BtnTournament/Col"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("10_fredoka")
+theme_override_font_sizes/font_size = 18
+text = "Global ranked season"
+horizontal_alignment = 1
